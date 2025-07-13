@@ -22,10 +22,18 @@ export const Header = () => {
 
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "Menu", path: "/menu" },
-    { name: "About Us", path: "/about" },
-    { name: "Contact Us", path: "/contact" },
-    { name: "Reservations", path: "/reservations" },
+    { 
+      name: "Menu", 
+      path: "/menu",
+      dropdown: [
+        { name: "À la Carte Menu", path: "/menu" },
+        { name: "Bar Menu", path: "/menu#bar" }
+      ]
+    },
+    { name: "About", path: "/about" },
+    { name: "Gallery", path: "/gallery" },
+    { name: "Events", path: "/events" },
+    { name: "Contact", path: "/contact" },
   ];
 
   return (
@@ -53,16 +61,24 @@ export const Header = () => {
                 to={item.path}
                 className={`font-source text-sm tracking-wider uppercase transition-colors duration-300 relative group ${
                   location.pathname === item.path 
-                    ? "text-sage-600" 
-                    : "text-charcoal-500 hover:text-sage-600"
+                    ? "text-buttercup-primary" 
+                    : "text-charcoal-500 hover:text-buttercup-primary"
                 }`}
               >
                 {item.name}
-                <span className={`absolute bottom-0 left-0 h-0.5 bg-sage-600 transition-all duration-300 ${
+                <span className={`absolute bottom-0 left-0 h-0.5 bg-buttercup-primary transition-all duration-300 ${
                   location.pathname === item.path ? "w-full" : "w-0 group-hover:w-full"
                 }`}></span>
               </Link>
             ))}
+            
+            {/* Reservation CTA Button */}
+            <Link
+              to="/reservations"
+              className="bg-buttercup-primary hover:bg-buttercup-secondary text-cream-50 px-luxury-2 py-2 font-source text-sm tracking-wider uppercase transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-buttercup-primary/30 rounded ml-4"
+            >
+              Reservation
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -89,13 +105,22 @@ export const Header = () => {
                   onClick={closeMobileMenu}
                   className={`font-source text-sm tracking-wider uppercase transition-colors duration-300 text-left px-4 py-2 ${
                     location.pathname === item.path 
-                      ? "text-sage-600" 
-                      : "text-charcoal-500 hover:text-sage-600"
+                      ? "text-buttercup-primary" 
+                      : "text-charcoal-500 hover:text-buttercup-primary"
                   }`}
                 >
                   {item.name}
                 </Link>
               ))}
+              
+              {/* Mobile Reservation Button */}
+              <Link
+                to="/reservations"
+                onClick={closeMobileMenu}
+                className="bg-buttercup-primary text-cream-50 px-4 py-3 font-source text-sm tracking-wider uppercase transition-all duration-300 rounded mx-4 text-center"
+              >
+                Make Reservation
+              </Link>
             </div>
           </div>
         )}

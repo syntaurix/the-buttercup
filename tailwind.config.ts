@@ -86,6 +86,15 @@ export default {
 					500: '0 0% 24%',    // #3E3E3E
 					600: '0 0% 18%',    // #2E2E2E
 					700: '0 0% 12%'     // #1E1E1E
+				},
+				'buttercup': {
+					primary: '88 58% 54%',    // #8BC34A - main logo green
+					secondary: '122 39% 49%', // #4CAF50 - deeper shade
+					accent: '122 39% 85%',    // #C8E6C9 - light green for backgrounds
+					dark: '122 66% 18%',      // #2E7D32 - for text and headers
+					medium: '122 39% 66%',    // #66BB6A - for hover states
+					light: '120 45% 94%',     // #E8F5E8 - for section backgrounds
+					orange: '36 100% 50%'     // #FF9800 - orange accent for urgent CTAs
 				}
 			},
 			fontFamily: {

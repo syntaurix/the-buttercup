@@ -63,9 +63,9 @@ const Menu = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-to-br from-sage-50 to-cream-100">
+      <section className="pt-20 pb-16 bg-buttercup-primary text-cream-50">
         <div className="max-w-6xl mx-auto px-luxury-2 text-center">
-          <h1 className="font-playfair text-5xl md:text-6xl font-normal text-sage-600 mb-luxury tracking-wide">
+          <h1 className="font-playfair text-5xl md:text-6xl font-normal mb-luxury tracking-wide">
             Our Menu
           </h1>
           <p className="font-cormorant text-xl md:text-2xl text-charcoal-500 max-w-3xl mx-auto leading-relaxed">
@@ -79,7 +79,7 @@ const Menu = () => {
         <div className="max-w-6xl mx-auto">
           {categories.map((category) => (
             <div key={category} className="mb-luxury-6">
-              <h2 className="font-playfair text-4xl text-sage-600 text-center mb-luxury-4 font-normal">
+              <h2 className="font-playfair text-4xl text-buttercup-dark text-center mb-luxury-4 font-normal">
                 {category}
               </h2>
               
