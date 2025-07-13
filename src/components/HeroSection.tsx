@@ -1,4 +1,5 @@
 import { ArrowDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import heroBackground from "@/assets/hero-background.jpg";
 
 export const HeroSection = () => {
@@ -12,51 +13,75 @@ export const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="h-screen relative flex items-center justify-center overflow-hidden"
+      className="min-h-screen relative flex items-center justify-center overflow-hidden"
     >
-      {/* Background Image */}
-      <div className="absolute inset-0 w-full h-full">
-        <img
-          src={heroBackground}
-          alt="The Buttercup Restaurant Interior"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-sage-500/20 to-sage-400/10"></div>
-        <div className="absolute inset-0 bg-charcoal-700/30"></div>
+      {/* Background Image with Parallax */}
+      <div 
+        className="absolute inset-0 w-full h-full"
+        style={{
+          backgroundImage: `url(${heroBackground})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/70"></div>
       </div>
 
       {/* Content */}
-      <div className="text-center z-10 max-w-4xl px-luxury-2 animate-fade-in-up">
-        <h1 className="font-playfair text-5xl md:text-7xl font-normal text-cream-50 mb-luxury-2 tracking-wide">
+      <div className="relative z-10 text-center max-w-6xl px-6 animate-fade-in">
+        <div className="mb-8">
+          <img 
+            src="/lovable-uploads/a1ae38a2-9cfa-493f-b421-eb8e554a4485.png" 
+            alt="The Buttercup Logo" 
+            className="h-32 w-32 mx-auto mb-6 animate-float"
+          />
+        </div>
+        
+        <h1 className="font-playfair text-5xl md:text-7xl lg:text-8xl font-normal text-white mb-6 tracking-wide leading-tight">
           The Buttercup
         </h1>
-        <p className="font-cormorant text-xl md:text-2xl text-cream-100 mb-luxury-3 font-light leading-relaxed max-w-2xl mx-auto">
-          Where culinary artistry meets timeless elegance. Experience the finest
-          ingredients transformed into extraordinary moments.
+        
+        <div className="w-24 h-1 bg-gradient-to-r from-transparent via-buttercup-orange to-transparent mx-auto mb-8"></div>
+        
+        <p className="font-cormorant text-xl md:text-2xl lg:text-3xl text-buttercup-warm-cream mb-4 font-light leading-relaxed max-w-4xl mx-auto">
+          Foods of Nature
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button
+        
+        <p className="text-lg md:text-xl text-white/90 mb-12 font-light leading-relaxed max-w-3xl mx-auto">
+          Where farm-fresh ingredients meet culinary artistry. Experience the pure taste of nature's bounty, 
+          crafted with passion and served with love.
+        </p>
+        
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <Button
             onClick={() => scrollToSection("menu")}
-            className="bg-sage-500 hover:bg-sage-600 text-cream-50 px-luxury-3 py-luxury-2 font-source text-sm tracking-wider uppercase transition-all duration-800 hover:-translate-y-1 hover:shadow-lg hover:shadow-sage-500/30 rounded"
+            size="lg"
+            className="bg-buttercup-green hover:bg-buttercup-dark-green text-white px-8 py-4 text-lg font-medium tracking-wide uppercase transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-buttercup-green/30 rounded-none"
           >
-            View Menu
-          </button>
-          <button
+            Explore Menu
+          </Button>
+          <Button
             onClick={() => scrollToSection("reservations")}
-            className="border-2 border-cream-50 hover:bg-cream-50 hover:text-charcoal-600 text-cream-50 px-luxury-3 py-luxury-2 font-source text-sm tracking-wider uppercase transition-all duration-800 hover:-translate-y-1 rounded"
+            variant="outline"
+            size="lg"
+            className="border-2 border-buttercup-orange hover:bg-buttercup-orange text-buttercup-orange hover:text-white px-8 py-4 text-lg font-medium tracking-wide uppercase transition-all duration-500 hover:scale-105 rounded-none"
           >
-            Make Reservation
-          </button>
+            Reserve Table
+          </Button>
         </div>
       </div>
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
         <button
-          onClick={() => scrollToSection("philosophy")}
-          className="animate-parallax-float text-cream-50 hover:text-sage-400 transition-colors duration-300"
+          onClick={() => scrollToSection("story")}
+          className="animate-bounce text-white hover:text-buttercup-orange transition-colors duration-300 group"
         >
-          <ArrowDown className="h-6 w-6" />
+          <div className="flex flex-col items-center space-y-2">
+            <span className="text-sm uppercase tracking-wider opacity-80 group-hover:opacity-100">Discover</span>
+            <ArrowDown className="h-6 w-6" />
+          </div>
         </button>
       </div>
     </section>

@@ -92,18 +92,15 @@ All colors MUST be HSL.
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
     
-    /* The Buttercup Custom Colors */
-    --buttercup-primary: 88 58% 54%; /* #8BC34A - main logo green */
-    --buttercup-secondary: 122 39% 49%; /* #4CAF50 - deeper shade */
-    --buttercup-accent: 122 39% 85%; /* #C8E6C9 - light green for backgrounds */
-    --buttercup-dark: 122 66% 18%; /* #2E7D32 - for text and headers */
-    --buttercup-medium: 122 39% 66%; /* #66BB6A - for hover states */
-    --buttercup-light: 120 45% 94%; /* #E8F5E8 - for section backgrounds */
-    --buttercup-orange: 36 100% 50%; /* #FF9800 - orange accent for urgent CTAs */
-    --sage-primary: 88 52% 55%;
-    --sage-deep: 88 49% 50%;
-    --cream-warm: 40 33% 96%;
-    --charcoal-primary: 0 0% 24%;
+    /* The Buttercup Logo Colors */
+    --buttercup-green: 88 71% 45%; /* Main vibrant green from logo */
+    --buttercup-orange: 28 100% 60%; /* Orange center from logo */
+    --buttercup-cream: 48 33% 88%; /* Cream outer ring from logo */
+    --buttercup-dark-green: 88 60% 25%; /* Darker green for text */
+    --buttercup-light-green: 88 45% 85%; /* Light green for backgrounds */
+    --buttercup-warm-cream: 45 40% 96%; /* Warm cream for sections */
+    --buttercup-gold: 45 85% 70%; /* Golden accent */
+    --charcoal-warm: 30 8% 20%; /* Warm charcoal for text */
   }
 }
 

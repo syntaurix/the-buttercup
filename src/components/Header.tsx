@@ -47,11 +47,16 @@ export const Header = () => {
       <nav className="max-w-7xl mx-auto px-luxury-2 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center">
-            <h1 className="font-playfair text-2xl md:text-3xl font-normal text-sage-600 tracking-wide">
+          <Link to="/" className="flex items-center space-x-3">
+            <img 
+              src="/lovable-uploads/a1ae38a2-9cfa-493f-b421-eb8e554a4485.png" 
+              alt="The Buttercup Logo" 
+              className="h-12 w-12"
+            />
+            <span className="font-playfair text-xl font-bold text-buttercup-green">
               The Buttercup
-            </h1>
-          </div>
+            </span>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -61,12 +66,12 @@ export const Header = () => {
                 to={item.path}
                 className={`font-source text-sm tracking-wider uppercase transition-colors duration-300 relative group ${
                   location.pathname === item.path 
-                    ? "text-buttercup-primary" 
-                    : "text-charcoal-500 hover:text-buttercup-primary"
+                    ? "text-buttercup-green" 
+                    : "text-charcoal-warm hover:text-buttercup-green"
                 }`}
               >
                 {item.name}
-                <span className={`absolute bottom-0 left-0 h-0.5 bg-buttercup-primary transition-all duration-300 ${
+                <span className={`absolute bottom-0 left-0 h-0.5 bg-buttercup-green transition-all duration-300 ${
                   location.pathname === item.path ? "w-full" : "w-0 group-hover:w-full"
                 }`}></span>
               </Link>
@@ -75,7 +80,7 @@ export const Header = () => {
             {/* Reservation CTA Button */}
             <Link
               to="/reservations"
-              className="bg-buttercup-primary hover:bg-buttercup-secondary text-cream-50 px-luxury-2 py-2 font-source text-sm tracking-wider uppercase transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-buttercup-primary/30 rounded ml-4"
+              className="bg-buttercup-green hover:bg-buttercup-dark-green text-white px-6 py-2 font-source text-sm tracking-wider uppercase transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-buttercup-green/30 rounded-none ml-4"
             >
               Reservation
             </Link>
