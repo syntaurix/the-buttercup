@@ -21,32 +21,36 @@ export const Header = () => {
   };
 
   const navItems = [
-    { name: "HOME", path: "/" },
-    { name: "MENU", path: "/menu" },
-    { name: "ABOUT US", path: "/about" },
-    { name: "CONTACT US", path: "/contact" },
+    { name: "Home", path: "/" },
+    { 
+      name: "Menu", 
+      path: "/menu",
+      dropdown: [
+        { name: "À la Carte Menu", path: "/menu" },
+        { name: "Bar Menu", path: "/menu#bar" }
+      ]
+    },
+    { name: "About", path: "/about" },
+    { name: "Gallery", path: "/gallery" },
+    { name: "Events", path: "/events" },
+    { name: "Contact", path: "/contact" },
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-800 ${
         isScrolled
-          ? "bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm"
+          ? "bg-cream-50/95 backdrop-blur-sm border-b border-sage-200"
           : "bg-transparent"
       }`}
     >
-      <nav className="container-width py-4">
+      <nav className="max-w-7xl mx-auto px-luxury-2 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <Link 
-              to="/"
-              className={`font-playfair text-2xl md:text-3xl font-normal tracking-wide transition-colors duration-300 ${
-                isScrolled ? "text-primary-green" : "text-white"
-              }`}
-            >
+            <h1 className="font-playfair text-2xl md:text-3xl font-normal text-sage-600 tracking-wide">
               The Buttercup
-            </Link>
+            </h1>
           </div>
 
           {/* Desktop Navigation */}
@@ -55,17 +59,15 @@ export const Header = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm tracking-wider font-medium transition-all duration-300 relative group ${
+                className={`font-source text-sm tracking-wider uppercase transition-colors duration-300 relative group ${
                   location.pathname === item.path 
-                    ? (isScrolled ? "text-primary-green" : "text-warm-orange")
-                    : (isScrolled ? "text-warm-gray hover:text-primary-green" : "text-white/90 hover:text-warm-orange")
+                    ? "text-buttercup-primary" 
+                    : "text-charcoal-500 hover:text-buttercup-primary"
                 }`}
               >
                 {item.name}
-                <span className={`absolute bottom-0 left-0 h-0.5 transition-all duration-300 ${
-                  location.pathname === item.path 
-                    ? (isScrolled ? "w-full bg-primary-green" : "w-full bg-warm-orange")
-                    : "w-0 group-hover:w-full bg-warm-orange"
+                <span className={`absolute bottom-0 left-0 h-0.5 bg-buttercup-primary transition-all duration-300 ${
+                  location.pathname === item.path ? "w-full" : "w-0 group-hover:w-full"
                 }`}></span>
               </Link>
             ))}
@@ -73,18 +75,16 @@ export const Header = () => {
             {/* Reservation CTA Button */}
             <Link
               to="/reservations"
-              className="bg-warm-orange hover:bg-orange-600 text-white px-6 py-2 text-sm font-medium tracking-wider uppercase transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/30 rounded-sm ml-4"
+              className="bg-buttercup-primary hover:bg-buttercup-secondary text-cream-50 px-luxury-2 py-2 font-source text-sm tracking-wider uppercase transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-buttercup-primary/30 rounded ml-4"
             >
-              RESERVATIONS
+              Reservation
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden p-2 transition-colors duration-300 ${
-              isScrolled ? "text-warm-gray hover:text-primary-green" : "text-white hover:text-warm-orange"
-            }`}
+            className="md:hidden p-2 text-charcoal-500 hover:text-sage-600 transition-colors duration-300"
           >
             {isMobileMenuOpen ? (
               <X className="h-6 w-6" />
@@ -96,17 +96,17 @@ export const Header = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 py-4 bg-white/95 backdrop-blur-sm rounded-lg border border-gray-200 shadow-lg">
+          <div className="md:hidden mt-4 py-4 bg-cream-50/95 backdrop-blur-sm rounded-lg border border-sage-200">
             <div className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
                   onClick={closeMobileMenu}
-                  className={`text-sm tracking-wider font-medium transition-colors duration-300 text-left px-4 py-2 ${
+                  className={`font-source text-sm tracking-wider uppercase transition-colors duration-300 text-left px-4 py-2 ${
                     location.pathname === item.path 
-                      ? "text-primary-green" 
-                      : "text-warm-gray hover:text-primary-green"
+                      ? "text-buttercup-primary" 
+                      : "text-charcoal-500 hover:text-buttercup-primary"
                   }`}
                 >
                   {item.name}
@@ -117,9 +117,9 @@ export const Header = () => {
               <Link
                 to="/reservations"
                 onClick={closeMobileMenu}
-                className="bg-warm-orange text-white px-4 py-3 text-sm font-medium tracking-wider uppercase transition-all duration-300 rounded-sm mx-4 text-center"
+                className="bg-buttercup-primary text-cream-50 px-4 py-3 font-source text-sm tracking-wider uppercase transition-all duration-300 rounded mx-4 text-center"
               >
-                RESERVATIONS
+                Make Reservation
               </Link>
             </div>
           </div>

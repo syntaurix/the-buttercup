@@ -1,7 +1,9 @@
-import { HeroSection } from "@/components/HeroSection";
-import { AboutPreview } from "@/components/AboutPreview";
-import { FeaturedMenu } from "@/components/FeaturedMenu";
-import { ContactInfo } from "@/components/ContactInfo";
+import { HeroCarousel } from "@/components/HeroCarousel";
+import { OurStorySection } from "@/components/OurStorySection";
+import { FeaturedDishesSection } from "@/components/FeaturedDishesSection";
+import { MenuPreviewSection } from "@/components/MenuPreviewSection";
+import { CustomerReviewsSection } from "@/components/CustomerReviewsSection";
+import { HoursContactSection } from "@/components/HoursContactSection";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
@@ -10,10 +12,12 @@ const Index = () => {
     <div className="min-h-screen">
       <Header />
       <main>
-        <HeroSection />
-        <AboutPreview />
-        <FeaturedMenu />
-        <ContactInfo />
+        <HeroCarousel />
+        <OurStorySection />
+        <FeaturedDishesSection />
+        <MenuPreviewSection />
+        <CustomerReviewsSection />
+        <HoursContactSection />
       </main>
       <Footer />
     </div>
