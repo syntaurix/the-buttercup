@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -13,22 +14,18 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
-    }
+  const location = useLocation();
+  
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
   };
 
   const navItems = [
-    { name: "Home", id: "hero" },
-    { name: "Philosophy", id: "philosophy" },
-    { name: "Menu", id: "menu" },
-    { name: "Ambiance", id: "ambiance" },
-    { name: "Chef", id: "chef" },
-    { name: "Reservations", id: "reservations" },
-    { name: "Contact", id: "contact" },
+    { name: "Home", path: "/" },
+    { name: "Menu", path: "/menu" },
+    { name: "About Us", path: "/about" },
+    { name: "Contact Us", path: "/contact" },
+    { name: "Reservations", path: "/reservations" },
   ];
 
   return (
@@ -51,14 +48,20 @@ export const Header = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="font-source text-sm tracking-wider uppercase text-charcoal-500 hover:text-sage-600 transition-colors duration-300 relative group"
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`font-source text-sm tracking-wider uppercase transition-colors duration-300 relative group ${
+                  location.pathname === item.path 
+                    ? "text-sage-600" 
+                    : "text-charcoal-500 hover:text-sage-600"
+                }`}
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-sage-600 transition-all duration-300 group-hover:w-full"></span>
-              </button>
+                <span className={`absolute bottom-0 left-0 h-0.5 bg-sage-600 transition-all duration-300 ${
+                  location.pathname === item.path ? "w-full" : "w-0 group-hover:w-full"
+                }`}></span>
+              </Link>
             ))}
           </div>
 
@@ -80,13 +83,18 @@ export const Header = () => {
           <div className="md:hidden mt-4 py-4 bg-cream-50/95 backdrop-blur-sm rounded-lg border border-sage-200">
             <div className="flex flex-col space-y-4">
               {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="font-source text-sm tracking-wider uppercase text-charcoal-500 hover:text-sage-600 transition-colors duration-300 text-left px-4 py-2"
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={closeMobileMenu}
+                  className={`font-source text-sm tracking-wider uppercase transition-colors duration-300 text-left px-4 py-2 ${
+                    location.pathname === item.path 
+                      ? "text-sage-600" 
+                      : "text-charcoal-500 hover:text-sage-600"
+                  }`}
                 >
                   {item.name}
-                </button>
+                </Link>
               ))}
             </div>
           </div>
