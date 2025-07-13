@@ -1,11 +1,9 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
 
 export const CustomerReviewsSection = () => {
   const [currentReview, setCurrentReview] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
 
   const reviews = [
     {
@@ -60,18 +58,6 @@ export const CustomerReviewsSection = () => {
     return () => clearInterval(interval);
   }, [isPlaying, reviews.length]);
 
-  // Intersection Observer for animations
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsVisible(entry.isIntersecting),
-      { threshold: 0.3 }
-    );
-    
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    
-    return () => observer.disconnect();
-  }, []);
-
   const nextReview = () => {
     setCurrentReview((prev) => (prev + 1) % reviews.length);
   };
@@ -100,30 +86,21 @@ export const CustomerReviewsSection = () => {
     return Array.from({ length: 5 }, (_, i) => (
       <Star
         key={i}
-        className={`h-5 w-5 ${
-          i < rating ? "text-green-600 fill-current" : "text-gray-300"
+        className={`h-4 w-4 ${
+          i < rating ? "text-buttercup-medium fill-current" : "text-gray-300"
         }`}
       />
     ));
   };
 
   return (
-    <section ref={sectionRef} className="py-20 px-4 bg-gradient-to-br from-green-50 to-emerald-50 relative overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-10 w-32 h-32 bg-green-400 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 right-10 w-40 h-40 bg-emerald-400 rounded-full blur-3xl"></div>
-      </div>
-      
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className={`text-center mb-16 transform transition-all duration-1000 ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-        }`}>
-          <h2 className="font-playfair text-5xl md:text-6xl text-gray-800 mb-6 font-normal tracking-wide">
+    <section className="py-luxury-8 px-luxury-2 bg-buttercup-light">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-luxury-6">
+          <h2 className="font-playfair text-4xl md:text-5xl text-buttercup-dark mb-luxury-2 font-normal tracking-wide">
             What Our Customers Say About Us
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-transparent via-green-600 to-transparent mx-auto mb-4"></div>
-          <p className="text-xl text-gray-600 font-light tracking-wide">
+          <p className="font-cormorant text-xl text-charcoal-500 font-light">
             Customer Reviews
           </p>
         </div>
@@ -134,50 +111,38 @@ export const CustomerReviewsSection = () => {
           onMouseEnter={() => setIsPlaying(false)}
           onMouseLeave={() => setIsPlaying(true)}
         >
-          {/* Desktop View - 3 reviews with enhanced animations */}
-          <div className="hidden md:grid md:grid-cols-3 gap-8">
+          {/* Desktop View - 3 reviews */}
+          <div className="hidden md:grid md:grid-cols-3 gap-luxury-4">
             {getVisibleReviews().map((review, index) => (
               <div
                 key={`${review.id}-${index}`}
-                className={`bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 relative group border border-green-100 transform ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                }`}
-                style={{ 
-                  animationDelay: `${index * 200}ms`,
-                  transform: index === 1 ? 'scale(1.05)' : 'scale(1)'
-                }}
+                className="bg-white rounded-lg p-luxury-3 shadow-lg hover:shadow-xl transition-shadow duration-300 relative"
               >
-                {/* Gradient border effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-400 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                
-                {/* Quote Icon with animation */}
-                <Quote className="h-12 w-12 text-green-600 mb-6 group-hover:text-green-700 transition-colors duration-300 group-hover:scale-110 transform" />
+                {/* Quote Icon */}
+                <Quote className="h-8 w-8 text-buttercup-accent mb-4" />
                 
                 {/* Review Text */}
-                <p className="text-lg text-gray-700 leading-relaxed font-light mb-6 italic">
+                <p className="font-cormorant text-lg text-charcoal-500 leading-relaxed font-light mb-luxury-2">
                   "{review.text}"
                 </p>
                 
-                {/* Rating with animation */}
-                <div className="flex items-center mb-6 space-x-1">
+                {/* Rating */}
+                <div className="flex items-center mb-luxury-2">
                   {renderStars(review.rating)}
                 </div>
                 
-                {/* Customer Info with enhanced styling */}
+                {/* Customer Info */}
                 <div className="flex items-center">
-                  <div className="relative">
-                    <img
-                      src={review.avatar}
-                      alt={review.name}
-                      className="w-16 h-16 rounded-full object-cover mr-4 border-4 border-green-100 group-hover:border-green-300 transition-colors duration-300"
-                    />
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-green-400 to-emerald-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                  </div>
+                  <img
+                    src={review.avatar}
+                    alt={review.name}
+                    className="w-12 h-12 rounded-full object-cover mr-4"
+                  />
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-800 group-hover:text-green-700 transition-colors duration-300">
+                    <h4 className="font-source text-sm font-medium text-buttercup-dark">
                       {review.name}
                     </h4>
-                    <p className="text-sm text-gray-500">
+                    <p className="font-source text-xs text-charcoal-500">
                       {review.date}
                     </p>
                   </div>
@@ -186,27 +151,27 @@ export const CustomerReviewsSection = () => {
             ))}
           </div>
 
-          {/* Mobile View - Enhanced single review */}
+          {/* Mobile View - 1 review */}
           <div className="md:hidden">
-            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-2xl relative border border-green-100 transform transition-all duration-500">
-              <Quote className="h-12 w-12 text-green-600 mb-6" />
-              <p className="text-lg text-gray-700 leading-relaxed font-light mb-6 italic">
+            <div className="bg-white rounded-lg p-luxury-3 shadow-lg relative">
+              <Quote className="h-8 w-8 text-buttercup-accent mb-4" />
+              <p className="font-cormorant text-lg text-charcoal-500 leading-relaxed font-light mb-luxury-2">
                 "{reviews[currentReview].text}"
               </p>
-              <div className="flex items-center mb-6 space-x-1">
+              <div className="flex items-center mb-luxury-2">
                 {renderStars(reviews[currentReview].rating)}
               </div>
               <div className="flex items-center">
                 <img
                   src={reviews[currentReview].avatar}
                   alt={reviews[currentReview].name}
-                  className="w-16 h-16 rounded-full object-cover mr-4 border-4 border-green-100"
+                  className="w-12 h-12 rounded-full object-cover mr-4"
                 />
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-800">
+                  <h4 className="font-source text-sm font-medium text-buttercup-dark">
                     {reviews[currentReview].name}
                   </h4>
-                  <p className="text-sm text-gray-500">
+                  <p className="font-source text-xs text-charcoal-500">
                     {reviews[currentReview].date}
                   </p>
                 </div>
@@ -214,32 +179,32 @@ export const CustomerReviewsSection = () => {
             </div>
           </div>
 
-          {/* Enhanced Navigation Arrows */}
+          {/* Navigation Arrows */}
           <button
             onClick={prevReview}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-6 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white p-4 rounded-full transition-all duration-300 hover:scale-110 shadow-xl z-10"
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-buttercup-primary hover:bg-buttercup-secondary text-cream-50 p-3 rounded-full transition-all duration-300 hover:scale-110 shadow-lg"
           >
-            <ChevronLeft className="h-6 w-6" />
+            <ChevronLeft className="h-5 w-5" />
           </button>
           
           <button
             onClick={nextReview}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-6 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white p-4 rounded-full transition-all duration-300 hover:scale-110 shadow-xl z-10"
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-buttercup-primary hover:bg-buttercup-secondary text-cream-50 p-3 rounded-full transition-all duration-300 hover:scale-110 shadow-lg"
           >
-            <ChevronRight className="h-6 w-6" />
+            <ChevronRight className="h-5 w-5" />
           </button>
         </div>
 
-        {/* Enhanced Dots Indicator */}
-        <div className="flex justify-center mt-12 space-x-3">
+        {/* Dots Indicator */}
+        <div className="flex justify-center mt-luxury-4 space-x-2">
           {reviews.map((_, index) => (
             <button
               key={index}
               onClick={() => goToReview(index)}
-              className={`w-4 h-4 rounded-full transition-all duration-500 ${
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 index === currentReview
-                  ? "bg-gradient-to-r from-green-500 to-emerald-500 scale-125 animate-pulse-glow"
-                  : "bg-gray-300 hover:bg-green-400"
+                  ? "bg-buttercup-secondary scale-125"
+                  : "bg-buttercup-medium/50 hover:bg-buttercup-medium/75"
               }`}
             />
           ))}
