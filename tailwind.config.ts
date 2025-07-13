@@ -62,45 +62,34 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// The Buttercup Custom Colors
-				'sage': {
-					50: '85 22% 97%',   // #F8FAF4
-					100: '85 25% 94%',  // #F1F5E9
-					200: '85 28% 85%',  // #E3EBD3
-					300: '85 31% 76%',  // #D5E1BD
-					400: '86 55% 65%',  // #A8D26D
-					500: '88 52% 55%',  // #8BC34A (primary-sage)
-					600: '88 49% 50%',  // #7CB342 (deep-sage)
-					700: '88 46% 43%',  // #689F38
-					800: '88 43% 36%',  // #558B2F
-					900: '88 40% 26%'   // #33691E
-				},
-				'cream': {
-					50: '0 0% 99%',     // #FEFEFE (soft-white)
-					100: '40 33% 96%',  // #F8F6F0 (warm-cream)
-					200: '0 0% 96%',    // #F5F5F5 (subtle-gray)
-					300: '40 13% 90%',  // #E8E6E0
-					400: '40 10% 85%'   // #DBD9D3
-				},
-				'charcoal': {
-					500: '0 0% 24%',    // #3E3E3E
-					600: '0 0% 18%',    // #2E2E2E
-					700: '0 0% 12%'     // #1E1E1E
-				},
+				// Buttercup Brand Colors - Updated from specifications
 				'buttercup': {
-					primary: '88 58% 54%',    // #8BC34A - main logo green
-					secondary: '122 39% 49%', // #4CAF50 - deeper shade
-					accent: '122 39% 85%',    // #C8E6C9 - light green for backgrounds
-					dark: '122 66% 18%',      // #2E7D32 - for text and headers
-					medium: '122 39% 66%',    // #66BB6A - for hover states
-					light: '120 45% 94%',     // #E8F5E8 - for section backgrounds
-					orange: '36 100% 50%'     // #FF9800 - orange accent for urgent CTAs
+					'primary-green': 'hsl(var(--primary-green))',
+					'warm-orange': 'hsl(var(--warm-orange))',
+					'soft-cream': 'hsl(var(--soft-cream))',
+					'sage-green': 'hsl(var(--sage-green))',
+					'warm-gray': 'hsl(var(--warm-gray))',
+					'pure-white': 'hsl(var(--pure-white))',
+					'charcoal-dark': 'hsl(var(--charcoal-dark))'
 				}
 			},
 			fontFamily: {
 				'playfair': ['Playfair Display', 'serif'],
-				'cormorant': ['Cormorant Garamond', 'serif'],
-				'source': ['Source Sans Pro', 'sans-serif']
+				'inter': ['Inter', 'sans-serif'],
+				'sans': ['Inter', 'sans-serif']
+			},
+			fontSize: {
+				'xs': '0.75rem',
+				'sm': '0.875rem',
+				'base': '1.1rem',  // Increased base font size
+				'lg': '1.25rem',
+				'xl': '1.5rem',
+				'2xl': '1.875rem',
+				'3xl': '2.25rem',
+				'4xl': '2.5rem',   // H2 size
+				'5xl': '3rem',     // H1 size
+				'6xl': '3.75rem',
+				'7xl': '4.5rem'
 			},
 			spacing: {
 				'luxury': '16px',

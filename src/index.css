@@ -39,20 +39,22 @@ All colors MUST be HSL.
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Buttercup Brand Colors */
+    --primary-green: 88 58% 55%; /* #8BC34A - Primary Green from logo */
+    --warm-orange: 36 100% 50%; /* #FF9800 - Warm Orange for CTAs */
+    --soft-cream: 60 30% 96%; /* #F5F5DC - Soft Cream backgrounds */
+    --sage-green: 75 23% 60%; /* #A5A58D - Sage Green secondary */
+    --warm-gray: 20 25% 50%; /* #8D6E63 - Warm Gray body text */
+    --pure-white: 0 0% 100%; /* #FFFFFF - Pure white */
+    --charcoal-dark: 0 0% 20%; /* Dark text color */
   }
 
   .dark {
@@ -92,18 +94,28 @@ All colors MUST be HSL.
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
     
-    /* The Buttercup Custom Colors */
-    --buttercup-primary: 88 58% 54%; /* #8BC34A - main logo green */
-    --buttercup-secondary: 122 39% 49%; /* #4CAF50 - deeper shade */
-    --buttercup-accent: 122 39% 85%; /* #C8E6C9 - light green for backgrounds */
-    --buttercup-dark: 122 66% 18%; /* #2E7D32 - for text and headers */
-    --buttercup-medium: 122 39% 66%; /* #66BB6A - for hover states */
-    --buttercup-light: 120 45% 94%; /* #E8F5E8 - for section backgrounds */
-    --buttercup-orange: 36 100% 50%; /* #FF9800 - orange accent for urgent CTAs */
-    --sage-primary: 88 52% 55%;
-    --sage-deep: 88 49% 50%;
-    --cream-warm: 40 33% 96%;
-    --charcoal-primary: 0 0% 24%;
+    /* Buttercup Brand Colors - Updated from logo */
+    --primary-green: 88 58% 55%; /* #8BC34A - Primary Green from logo */
+    --warm-orange: 36 100% 50%; /* #FF9800 - Warm Orange for CTAs */
+    --soft-cream: 60 30% 96%; /* #F5F5DC - Soft Cream backgrounds */
+    --sage-green: 75 23% 60%; /* #A5A58D - Sage Green secondary */
+    --warm-gray: 20 25% 50%; /* #8D6E63 - Warm Gray body text */
+    --pure-white: 0 0% 100%; /* #FFFFFF - Pure white */
+    --charcoal-dark: 0 0% 20%; /* Dark text color */
+  }
+
+  /* Add to root as well for consistency */
+  :root {
+    /* ... existing root variables ... */
+    
+    /* Buttercup Brand Colors */
+    --primary-green: 88 58% 55%; /* #8BC34A - Primary Green from logo */
+    --warm-orange: 36 100% 50%; /* #FF9800 - Warm Orange for CTAs */
+    --soft-cream: 60 30% 96%; /* #F5F5DC - Soft Cream backgrounds */
+    --sage-green: 75 23% 60%; /* #A5A58D - Sage Green secondary */
+    --warm-gray: 20 25% 50%; /* #8D6E63 - Warm Gray body text */
+    --pure-white: 0 0% 100%; /* #FFFFFF - Pure white */
+    --charcoal-dark: 0 0% 20%; /* Dark text color */
   }
 }
 
@@ -114,5 +126,60 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.2;
+  }
+}
+
+/* Add smooth scrolling and improved typography */
+@layer utilities {
+  .section-padding {
+    @apply py-24 lg:py-32;
+  }
+  
+  .container-width {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .text-primary-green {
+    color: hsl(var(--primary-green));
+  }
+  
+  .text-warm-orange {
+    color: hsl(var(--warm-orange));
+  }
+  
+  .text-sage-green {
+    color: hsl(var(--sage-green));
+  }
+  
+  .text-warm-gray {
+    color: hsl(var(--warm-gray));
+  }
+  
+  .bg-primary-green {
+    background-color: hsl(var(--primary-green));
+  }
+  
+  .bg-warm-orange {
+    background-color: hsl(var(--warm-orange));
+  }
+  
+  .bg-soft-cream {
+    background-color: hsl(var(--soft-cream));
+  }
+  
+  .hover\:bg-primary-green:hover {
+    background-color: hsl(var(--primary-green));
+  }
+  
+  .hover\:bg-warm-orange:hover {
+    background-color: hsl(var(--warm-orange));
   }
 }
