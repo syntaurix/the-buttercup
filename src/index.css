@@ -91,6 +91,12 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* The Buttercup Custom Variables */
+    --sage-primary: 88 52% 55%;
+    --sage-deep: 88 49% 50%;
+    --cream-warm: 40 33% 96%;
+    --charcoal-primary: 0 0% 24%;
   }
 }
 
