@@ -5,9 +5,16 @@ export const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold text-brand-primary mb-4 font-playfair">
-              The Buttercup
-            </h3>
+            <div className="flex items-center mb-4">
+              <img 
+                src="/lovable-uploads/cc13e061-2c4e-4971-af5d-28335275563a.png" 
+                alt="The Buttercup Logo" 
+                className="h-10 w-auto mr-3"
+              />
+              <h3 className="text-2xl font-bold text-brand-primary font-playfair">
+                The Buttercup
+              </h3>
+            </div>
             <p className="text-neutral-300 mb-4">
               Experience culinary excellence with our chef's finest creations. 
               We pride ourselves on using the freshest ingredients and innovative techniques.
