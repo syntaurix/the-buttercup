@@ -1,63 +1,50 @@
-import { ArrowDown } from "lucide-react";
-import heroBackground from "@/assets/hero-background.jpg";
+
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const HeroSection = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    <section
-      id="hero"
-      className="h-screen relative flex items-center justify-center overflow-hidden"
-    >
-      {/* Background Image */}
-      <div className="absolute inset-0 w-full h-full">
-        <img
-          src={heroBackground}
-          alt="The Buttercup Restaurant Interior"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-sage-500/20 to-sage-400/10"></div>
-        <div className="absolute inset-0 bg-charcoal-700/30"></div>
+    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      {/* Background with parallax effect */}
+      <div
+        className="absolute inset-0 parallax"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80')`,
+        }}
+      >
+        <div className="absolute inset-0 bg-black/50" />
       </div>
 
       {/* Content */}
-      <div className="text-center z-10 max-w-4xl px-luxury-2 animate-fade-in-up">
-        <h1 className="font-playfair text-5xl md:text-7xl font-normal text-cream-50 mb-luxury-2 tracking-wide">
+      <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in-up">
           The Buttercup
         </h1>
-        <p className="font-cormorant text-xl md:text-2xl text-cream-100 mb-luxury-3 font-light leading-relaxed max-w-2xl mx-auto">
-          Where culinary artistry meets timeless elegance. Experience the finest
-          ingredients transformed into extraordinary moments.
+        <p className="text-xl md:text-2xl mb-8 font-light leading-relaxed animate-fade-in-up">
+          Experience culinary excellence with our chef's finest creations
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button
-            onClick={() => scrollToSection("menu")}
-            className="bg-sage-500 hover:bg-sage-600 text-cream-50 px-luxury-3 py-luxury-2 font-source text-sm tracking-wider uppercase transition-all duration-800 hover:-translate-y-1 hover:shadow-lg hover:shadow-sage-500/30 rounded"
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up">
+          <Link
+            to="/reservations"
+            className="bg-brand-primary hover:bg-brand-secondary text-white px-8 py-3 rounded-full font-medium text-lg transition-all duration-300 hover:scale-105 flex items-center gap-2"
+          >
+            Reserve Your Table
+            <ArrowRight size={20} />
+          </Link>
+          <Link
+            to="/menu"
+            className="border-2 border-white text-white hover:bg-white hover:text-neutral-900 px-8 py-3 rounded-full font-medium text-lg transition-all duration-300"
           >
             View Menu
-          </button>
-          <button
-            onClick={() => scrollToSection("reservations")}
-            className="border-2 border-cream-50 hover:bg-cream-50 hover:text-charcoal-600 text-cream-50 px-luxury-3 py-luxury-2 font-source text-sm tracking-wider uppercase transition-all duration-800 hover:-translate-y-1 rounded"
-          >
-            Make Reservation
-          </button>
+          </Link>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-        <button
-          onClick={() => scrollToSection("philosophy")}
-          className="animate-parallax-float text-cream-50 hover:text-sage-400 transition-colors duration-300"
-        >
-          <ArrowDown className="h-6 w-6" />
-        </button>
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-white rounded-full mt-2" />
+        </div>
       </div>
     </section>
   );
