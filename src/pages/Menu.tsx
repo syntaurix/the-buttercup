@@ -1,3 +1,4 @@
+
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import scallopsImage from "@/assets/scallops.jpg";
@@ -59,39 +60,39 @@ const Menu = () => {
   const categories = ["Appetizers", "Main Courses", "Desserts"];
 
   return (
-    <div className="min-h-screen bg-cream-50">
+    <div className="min-h-screen bg-neutral-50">
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-buttercup-primary text-cream-50">
-        <div className="max-w-6xl mx-auto px-luxury-2 text-center">
-          <h1 className="font-playfair text-5xl md:text-6xl font-normal mb-luxury tracking-wide">
+      <section className="pt-20 pb-16 bg-brand-primary text-white">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <h1 className="font-playfair text-5xl md:text-6xl font-normal mb-4 tracking-wide">
             Our Menu
           </h1>
-          <p className="font-cormorant text-xl md:text-2xl text-charcoal-500 max-w-3xl mx-auto leading-relaxed">
+          <p className="font-inter text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
             A carefully curated selection of dishes celebrating seasonal ingredients and culinary artistry
           </p>
         </div>
       </section>
 
       {/* Menu Content */}
-      <section className="py-luxury-8 px-luxury-2">
+      <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           {categories.map((category) => (
-            <div key={category} className="mb-luxury-6">
-              <h2 className="font-playfair text-4xl text-buttercup-dark text-center mb-luxury-4 font-normal">
+            <div key={category} className="mb-16">
+              <h2 className="font-playfair text-4xl text-brand-primary text-center mb-12 font-normal">
                 {category}
               </h2>
               
-              <div className="grid gap-luxury-4">
+              <div className="grid gap-8">
                 {menuItems
                   .filter(item => item.category === category)
                   .map((item) => (
                     <div
                       key={item.id}
-                      className="group flex flex-col md:flex-row items-start bg-white p-luxury-3 rounded-lg shadow-sm hover:shadow-lg transition-all duration-800 hover:bg-cream-50/60"
+                      className="group flex flex-col md:flex-row items-start bg-white p-8 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 hover:bg-neutral-50/60"
                     >
-                      <div className="w-full md:w-48 h-48 rounded-lg overflow-hidden mb-luxury-2 md:mb-0 md:mr-luxury-3 shadow-md group-hover:shadow-lg transition-shadow duration-300">
+                      <div className="w-full md:w-48 h-48 rounded-lg overflow-hidden mb-6 md:mb-0 md:mr-8 shadow-md group-hover:shadow-lg transition-shadow duration-300">
                         <img
                           src={item.image}
                           alt={item.name}
@@ -100,16 +101,16 @@ const Menu = () => {
                       </div>
                       
                       <div className="flex-1">
-                        <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-luxury-2">
-                          <h3 className="font-playfair text-2xl md:text-3xl text-sage-600 mb-2 md:mb-0 font-normal tracking-wide">
+                        <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                          <h3 className="font-playfair text-2xl md:text-3xl text-brand-dark mb-2 md:mb-0 font-normal tracking-wide">
                             {item.name}
                           </h3>
-                          <span className="font-source font-medium text-sage-600 text-xl md:text-2xl tracking-wider">
+                          <span className="font-inter font-medium text-brand-primary text-xl md:text-2xl">
                             ${item.price}
                           </span>
                         </div>
                         
-                        <p className="font-cormorant text-lg md:text-xl text-charcoal-500 leading-relaxed max-w-2xl">
+                        <p className="font-inter text-lg md:text-xl text-neutral-600 leading-relaxed max-w-2xl">
                           {item.description}
                         </p>
                       </div>

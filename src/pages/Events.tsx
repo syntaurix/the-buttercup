@@ -1,3 +1,4 @@
+
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Calendar, Users, Clock, Star } from "lucide-react";
@@ -57,70 +58,70 @@ const Events = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      <main className="pt-24">
+      <main className="pt-20">
         {/* Hero Section */}
-        <section className="py-luxury-8 px-luxury-2 bg-buttercup-primary text-cream-50">
+        <section className="py-16 px-4 bg-brand-primary text-white">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="font-playfair text-5xl md:text-6xl font-normal mb-luxury-2 tracking-wide">
+            <h1 className="font-playfair text-5xl md:text-6xl font-normal mb-4 tracking-wide">
               Events
             </h1>
-            <p className="font-cormorant text-xl md:text-2xl font-light leading-relaxed">
+            <p className="font-inter text-xl md:text-2xl font-light leading-relaxed text-white/90">
               Exclusive dining experiences and private celebrations at The Buttercup
             </p>
           </div>
         </section>
 
         {/* Upcoming Events */}
-        <section className="py-luxury-8 px-luxury-2 bg-cream-50">
+        <section className="py-16 px-4 bg-neutral-50">
           <div className="max-w-6xl mx-auto">
-            <h2 className="font-playfair text-4xl text-buttercup-dark mb-luxury-6 font-normal tracking-wide text-center">
+            <h2 className="font-playfair text-4xl text-brand-primary mb-12 font-normal tracking-wide text-center">
               Upcoming Events
             </h2>
             
-            <div className="space-y-luxury-4">
+            <div className="space-y-8">
               {events.map((event) => (
                 <div
                   key={event.id}
-                  className={`bg-white rounded-lg p-luxury-4 shadow-lg hover:shadow-xl transition-all duration-300 ${
-                    event.featured ? "border-l-4 border-buttercup-primary" : ""
+                  className={`bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-all duration-300 ${
+                    event.featured ? "border-l-4 border-brand-accent" : ""
                   }`}
                 >
                   <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
                     <div className="flex-1">
                       <div className="flex items-center mb-2">
-                        <h3 className="font-playfair text-2xl text-buttercup-dark font-normal tracking-wide">
+                        <h3 className="font-playfair text-2xl text-brand-dark font-normal tracking-wide">
                           {event.title}
                         </h3>
                         {event.featured && (
-                          <Star className="h-5 w-5 text-buttercup-orange ml-2 fill-current" />
+                          <Star className="h-5 w-5 text-brand-accent ml-2 fill-current" />
                         )}
                       </div>
                       
                       <div className="grid md:grid-cols-3 gap-4 mb-3 text-sm">
-                        <div className="flex items-center text-charcoal-500">
-                          <Calendar className="h-4 w-4 text-buttercup-primary mr-2" />
-                          <span className="font-source">{event.date}</span>
+                        <div className="flex items-center text-neutral-600">
+                          <Calendar className="h-4 w-4 text-brand-primary mr-2" />
+                          <span className="font-inter">{event.date}</span>
                         </div>
-                        <div className="flex items-center text-charcoal-500">
-                          <Clock className="h-4 w-4 text-buttercup-primary mr-2" />
-                          <span className="font-source">{event.time}</span>
+                        <div className="flex items-center text-neutral-600">
+                          <Clock className="h-4 w-4 text-brand-primary mr-2" />
+                          <span className="font-inter">{event.time}</span>
                         </div>
-                        <div className="flex items-center text-charcoal-500">
-                          <Users className="h-4 w-4 text-buttercup-primary mr-2" />
-                          <span className="font-source">{event.capacity}</span>
+                        <div className="flex items-center text-neutral-600">
+                          <Users className="h-4 w-4 text-brand-primary mr-2" />
+                          <span className="font-inter">{event.capacity}</span>
                         </div>
                       </div>
                       
-                      <p className="font-cormorant text-lg text-charcoal-500 leading-relaxed font-light mb-3">
+                      <p className="font-inter text-lg text-neutral-600 leading-relaxed mb-3">
                         {event.description}
                       </p>
                     </div>
                     
                     <div className="lg:ml-6 text-center lg:text-right">
-                      <div className="text-2xl font-playfair text-buttercup-primary font-normal mb-3">
+                      <div className="text-2xl font-playfair text-brand-primary font-normal mb-3">
                         {event.price}
                       </div>
-                      <button className="bg-buttercup-primary hover:bg-buttercup-secondary text-cream-50 px-luxury-2 py-2 font-source text-sm tracking-wider uppercase transition-all duration-300 hover:-translate-y-1 hover:shadow-lg rounded">
+                      <button className="bg-brand-primary hover:bg-brand-secondary text-white px-6 py-2 font-inter text-sm tracking-wider uppercase transition-all duration-300 hover:-translate-y-1 hover:shadow-lg rounded">
                         Book Now
                       </button>
                     </div>
@@ -132,42 +133,42 @@ const Events = () => {
         </section>
 
         {/* Private Events */}
-        <section className="py-luxury-8 px-luxury-2 bg-buttercup-light">
+        <section className="py-16 px-4 bg-brand-light">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-luxury-6">
-              <h2 className="font-playfair text-4xl text-buttercup-dark mb-luxury-2 font-normal tracking-wide">
+            <div className="text-center mb-12">
+              <h2 className="font-playfair text-4xl text-brand-dark mb-4 font-normal tracking-wide">
                 Private Events
               </h2>
-              <p className="font-cormorant text-xl text-charcoal-500 font-light leading-relaxed max-w-2xl mx-auto">
+              <p className="font-inter text-xl text-neutral-600 leading-relaxed max-w-2xl mx-auto">
                 Create memorable experiences with our customized private dining options
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-luxury-4">
+            <div className="grid md:grid-cols-3 gap-8">
               {privateEvents.map((event, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-lg p-luxury-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                  className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
                 >
-                  <h3 className="font-playfair text-xl text-buttercup-dark mb-3 font-normal tracking-wide">
+                  <h3 className="font-playfair text-xl text-brand-dark mb-3 font-normal tracking-wide">
                     {event.title}
                   </h3>
-                  <p className="font-cormorant text-lg text-charcoal-500 leading-relaxed font-light mb-3">
+                  <p className="font-inter text-lg text-neutral-600 leading-relaxed mb-3">
                     {event.description}
                   </p>
-                  <div className="flex items-center text-sm text-buttercup-primary">
+                  <div className="flex items-center text-sm text-brand-primary">
                     <Users className="h-4 w-4 mr-2" />
-                    <span className="font-source font-medium">{event.capacity}</span>
+                    <span className="font-inter font-medium">{event.capacity}</span>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="text-center mt-luxury-6">
-              <p className="font-cormorant text-lg text-charcoal-500 mb-luxury-2 font-light">
+            <div className="text-center mt-12">
+              <p className="font-inter text-lg text-neutral-600 mb-4">
                 Interested in hosting a private event?
               </p>
-              <button className="bg-buttercup-primary hover:bg-buttercup-secondary text-cream-50 px-luxury-3 py-luxury-2 font-source text-sm tracking-wider uppercase transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-buttercup-primary/30 rounded">
+              <button className="bg-brand-primary hover:bg-brand-secondary text-white px-8 py-3 font-inter text-sm tracking-wider uppercase transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/30 rounded">
                 Contact Us
               </button>
             </div>
