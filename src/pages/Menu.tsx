@@ -1,124 +1,379 @@
 
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import scallopsImage from "@/assets/scallops.jpg";
 import lambImage from "@/assets/lamb.jpg";
 import risottoImage from "@/assets/risotto.jpg";
 
 const Menu = () => {
-  const menuItems = [
-    {
-      id: 1,
-      name: "Pan-Seared Diver Scallops",
-      description: "Atlantic diver scallops, cauliflower silk, pancetta crisps, microgreens from our garden",
-      price: 28,
-      image: scallopsImage,
-      category: "Appetizers"
-    },
-    {
-      id: 2,
-      name: "Herb-Crusted Rack of Lamb",
-      description: "Colorado lamb, rosemary crust, roasted root vegetables, red wine reduction",
-      price: 42,
-      image: lambImage,
-      category: "Main Courses"
-    },
-    {
-      id: 3,
-      name: "Wild Mushroom Risotto",
-      description: "Arborio rice, seasonal wild mushrooms, truffle oil, aged parmesan, fresh herbs",
-      price: 24,
-      image: risottoImage,
-      category: "Main Courses"
-    },
-    {
-      id: 4,
-      name: "Seasonal Vegetable Tasting",
-      description: "Chef's selection of seasonal vegetables, prepared three ways with herb oil",
-      price: 22,
-      image: scallopsImage,
-      category: "Appetizers"
-    },
-    {
-      id: 5,
-      name: "Chocolate Tart",
-      description: "Dark chocolate ganache, raspberry coulis, gold leaf, vanilla bean ice cream",
-      price: 16,
-      image: lambImage,
-      category: "Desserts"
-    },
-    {
-      id: 6,
-      name: "Artisanal Cheese Selection",
-      description: "Curated selection of local and imported cheeses with honey and candied walnuts",
-      price: 18,
-      image: risottoImage,
-      category: "Desserts"
-    }
-  ];
+  const menuData = {
+    "Big Bites": [
+      {
+        id: 1,
+        name: "Pan-Seared Diver Scallops",
+        description: "Atlantic diver scallops, cauliflower silk, pancetta crisps",
+        price: 28,
+        image: scallopsImage
+      },
+      {
+        id: 2,
+        name: "Herb-Crusted Rack of Lamb",
+        description: "Colorado lamb, rosemary crust, roasted root vegetables",
+        price: 42,
+        image: lambImage
+      },
+      {
+        id: 3,
+        name: "Wild Mushroom Risotto",
+        description: "Arborio rice, seasonal wild mushrooms, truffle oil",
+        price: 24,
+        image: risottoImage
+      },
+      {
+        id: 4,
+        name: "Grilled Salmon Fillet",
+        description: "Fresh Atlantic salmon with lemon herb butter",
+        price: 32,
+        image: scallopsImage
+      },
+      {
+        id: 5,
+        name: "Beef Tenderloin",
+        description: "Prime cut with red wine reduction and garlic mash",
+        price: 48,
+        image: lambImage
+      },
+      {
+        id: 6,
+        name: "Duck Confit",
+        description: "Slow-cooked duck leg with cherry glaze",
+        price: 36,
+        image: risottoImage
+      }
+    ],
+    "Soft Drinks": [
+      {
+        id: 7,
+        name: "Fresh Orange Juice",
+        description: "Freshly squeezed Valencia oranges",
+        price: 6,
+        image: scallopsImage
+      },
+      {
+        id: 8,
+        name: "Sparkling Water",
+        description: "San Pellegrino with lime",
+        price: 4,
+        image: lambImage
+      },
+      {
+        id: 9,
+        name: "House Lemonade",
+        description: "Fresh lemons with mint and honey",
+        price: 5,
+        image: risottoImage
+      },
+      {
+        id: 10,
+        name: "Iced Tea",
+        description: "Earl Grey with seasonal fruits",
+        price: 5,
+        image: scallopsImage
+      }
+    ],
+    "Bite": [
+      {
+        id: 11,
+        name: "Truffle Arancini",
+        description: "Crispy risotto balls with truffle oil",
+        price: 14,
+        image: lambImage
+      },
+      {
+        id: 12,
+        name: "Beef Carpaccio",
+        description: "Thinly sliced with capers and parmesan",
+        price: 16,
+        image: risottoImage
+      },
+      {
+        id: 13,
+        name: "Oysters Rockefeller",
+        description: "Fresh oysters with spinach and herbs",
+        price: 18,
+        image: scallopsImage
+      },
+      {
+        id: 14,
+        name: "Foie Gras Terrine",
+        description: "House-made with brioche and fig jam",
+        price: 22,
+        image: lambImage
+      }
+    ],
+    "Wines": [
+      {
+        id: 15,
+        name: "Château Margaux 2015",
+        description: "Bordeaux red wine, full-bodied",
+        price: 380,
+        image: risottoImage
+      },
+      {
+        id: 16,
+        name: "Dom Pérignon 2012",
+        description: "Champagne, crisp and elegant",
+        price: 450,
+        image: scallopsImage
+      },
+      {
+        id: 17,
+        name: "Opus One 2018",
+        description: "Napa Valley blend, rich and complex",
+        price: 520,
+        image: lambImage
+      },
+      {
+        id: 18,
+        name: "Sancerre Loire Valley",
+        description: "Sauvignon Blanc, fresh and mineral",
+        price: 85,
+        image: risottoImage
+      },
+      {
+        id: 19,
+        name: "Barolo Brunate 2017",
+        description: "Nebbiolo, structured and elegant",
+        price: 180,
+        image: scallopsImage
+      },
+      {
+        id: 20,
+        name: "Chablis Premier Cru",
+        description: "Chardonnay, crisp with mineral notes",
+        price: 95,
+        image: lambImage
+      }
+    ],
+    "Beer & Cider": [
+      {
+        id: 21,
+        name: "Local IPA",
+        description: "Hoppy craft beer with citrus notes",
+        price: 8,
+        image: risottoImage
+      },
+      {
+        id: 22,
+        name: "Belgian Wheat",
+        description: "Smooth wheat beer with coriander",
+        price: 9,
+        image: scallopsImage
+      },
+      {
+        id: 23,
+        name: "Apple Cider",
+        description: "Traditional dry cider from local orchards",
+        price: 7,
+        image: lambImage
+      },
+      {
+        id: 24,
+        name: "Stout Porter",
+        description: "Rich dark beer with coffee notes",
+        price: 9,
+        image: risottoImage
+      }
+    ],
+    "Cold Beverages": [
+      {
+        id: 25,
+        name: "Iced Coffee",
+        description: "Cold brew with vanilla cream",
+        price: 6,
+        image: scallopsImage
+      },
+      {
+        id: 26,
+        name: "Fresh Smoothie",
+        description: "Seasonal fruits with yogurt",
+        price: 8,
+        image: lambImage
+      },
+      {
+        id: 27,
+        name: "Coconut Water",
+        description: "Pure coconut water with lime",
+        price: 5,
+        image: risottoImage
+      },
+      {
+        id: 28,
+        name: "Green Tea",
+        description: "Matcha iced tea with honey",
+        price: 6,
+        image: scallopsImage
+      }
+    ],
+    "Hot Beverages": [
+      {
+        id: 29,
+        name: "Espresso",
+        description: "Double shot Italian roast",
+        price: 4,
+        image: lambImage
+      },
+      {
+        id: 30,
+        name: "Cappuccino",
+        description: "Rich espresso with steamed milk foam",
+        price: 6,
+        image: risottoImage
+      },
+      {
+        id: 31,
+        name: "Hot Chocolate",
+        description: "Belgian chocolate with whipped cream",
+        price: 7,
+        image: scallopsImage
+      },
+      {
+        id: 32,
+        name: "Herbal Tea",
+        description: "Chamomile or peppermint selection",
+        price: 5,
+        image: lambImage
+      }
+    ],
+    "Mocktails": [
+      {
+        id: 33,
+        name: "Virgin Mojito",
+        description: "Fresh mint, lime, and soda water",
+        price: 8,
+        image: risottoImage
+      },
+      {
+        id: 34,
+        name: "Berry Splash",
+        description: "Mixed berries with sparkling water",
+        price: 9,
+        image: scallopsImage
+      },
+      {
+        id: 35,
+        name: "Cucumber Cooler",
+        description: "Fresh cucumber with mint and lime",
+        price: 7,
+        image: lambImage
+      },
+      {
+        id: 36,
+        name: "Tropical Punch",
+        description: "Pineapple, mango, and coconut blend",
+        price: 10,
+        image: risottoImage
+      }
+    ],
+    "Bottled Water": [
+      {
+        id: 37,
+        name: "Evian Still",
+        description: "Premium French natural spring water",
+        price: 5,
+        image: scallopsImage
+      },
+      {
+        id: 38,
+        name: "Perrier Sparkling",
+        description: "Naturally carbonated mineral water",
+        price: 6,
+        image: lambImage
+      }
+    ]
+  };
 
-  const categories = ["Appetizers", "Main Courses", "Desserts"];
+  const categories = Object.keys(menuData);
 
   return (
     <div className="min-h-screen bg-neutral-50">
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-brand-primary text-white">
+      <section className="pt-24 pb-12 bg-gradient-to-b from-brand-light to-neutral-50">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <h1 className="font-playfair text-5xl md:text-6xl font-normal mb-4 tracking-wide">
-            Our Menu
+          <h1 className="font-playfair text-4xl md:text-5xl font-normal mb-4 text-brand-dark tracking-wide">
+            Discover Our Menu
           </h1>
-          <p className="font-inter text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+          <p className="font-inter text-lg md:text-xl text-neutral-600 max-w-2xl mx-auto leading-relaxed">
             A carefully curated selection of dishes celebrating seasonal ingredients and culinary artistry
           </p>
         </div>
       </section>
 
       {/* Menu Content */}
-      <section className="py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          {categories.map((category) => (
-            <div key={category} className="mb-16">
-              <h2 className="font-playfair text-4xl text-brand-primary text-center mb-12 font-normal">
-                {category}
-              </h2>
-              
-              <div className="grid gap-8">
-                {menuItems
-                  .filter(item => item.category === category)
-                  .map((item) => (
-                    <div
-                      key={item.id}
-                      className="group flex flex-col md:flex-row items-start bg-white p-8 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 hover:bg-neutral-50/60"
-                    >
-                      <div className="w-full md:w-48 h-48 rounded-lg overflow-hidden mb-6 md:mb-0 md:mr-8 shadow-md group-hover:shadow-lg transition-shadow duration-300">
-                        <img
-                          src={item.image}
-                          alt={item.name}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                      </div>
-                      
-                      <div className="flex-1">
-                        <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                          <h3 className="font-playfair text-2xl md:text-3xl text-brand-dark mb-2 md:mb-0 font-normal tracking-wide">
-                            {item.name}
-                          </h3>
-                          <span className="font-inter font-medium text-brand-primary text-xl md:text-2xl">
-                            ${item.price}
-                          </span>
+      <section className="py-12 px-4">
+        <div className="max-w-7xl mx-auto">
+          <Tabs defaultValue="Big Bites" className="w-full">
+            <TabsList className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-9 w-full mb-12 bg-white border border-neutral-200 p-1 h-auto">
+              {categories.map((category) => (
+                <TabsTrigger
+                  key={category}
+                  value={category}
+                  className="text-xs md:text-sm font-medium py-3 px-2 md:px-4 data-[state=active]:bg-brand-primary data-[state=active]:text-white rounded-md transition-all duration-200"
+                >
+                  {category}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+
+            {categories.map((category) => (
+              <TabsContent key={category} value={category} className="mt-0">
+                <div className="mb-8">
+                  <div className="bg-neutral-900 py-6 px-8 rounded-lg mb-8">
+                    <h2 className="font-playfair text-2xl md:text-3xl text-white text-center font-normal tracking-wide">
+                      {category}
+                    </h2>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {menuData[category as keyof typeof menuData].map((item) => (
+                      <div
+                        key={item.id}
+                        className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border border-neutral-100"
+                      >
+                        <div className="flex items-start gap-4">
+                          <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 shadow-md">
+                            <img
+                              src={item.image}
+                              alt={item.name}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          
+                          <div className="flex-1 min-w-0">
+                            <div className="flex justify-between items-start mb-2">
+                              <h3 className="font-playfair text-lg md:text-xl text-brand-dark font-normal leading-tight">
+                                {item.name}
+                              </h3>
+                              <span className="font-inter font-semibold text-brand-primary text-lg ml-4 flex-shrink-0">
+                                ${item.price}
+                              </span>
+                            </div>
+                            
+                            <p className="font-inter text-sm md:text-base text-neutral-600 leading-relaxed">
+                              {item.description}
+                            </p>
+                          </div>
                         </div>
-                        
-                        <p className="font-inter text-lg md:text-xl text-neutral-600 leading-relaxed max-w-2xl">
-                          {item.description}
-                        </p>
                       </div>
-                    </div>
-                  ))}
-              </div>
-            </div>
-          ))}
+                    ))}
+                  </div>
+                </div>
+              </TabsContent>
+            ))}
+          </Tabs>
         </div>
       </section>
 
