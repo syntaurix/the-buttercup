@@ -1,3 +1,4 @@
+
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -343,21 +344,25 @@ const Menu = () => {
 
             {categories.map((category) => (
               <TabsContent key={category} value={category} className="mt-0">
-                <div className="mb-8">
-                  <div className="bg-neutral-900 py-6 px-8 rounded-lg mb-8">
+                <div className="mb-8 animate-fade-in-up">
+                  <div className="bg-neutral-900 py-6 px-8 rounded-lg mb-8 transform transition-all duration-500 ease-out">
                     <h2 className="font-playfair text-2xl md:text-3xl text-white text-center font-normal tracking-wide">
                       {category}
                     </h2>
                   </div>
                   
                   <div className="grid md:grid-cols-2 gap-6">
-                    {menuData[category as keyof typeof menuData].map((item) => (
+                    {menuData[category as keyof typeof menuData].map((item, index) => (
                       <div
                         key={item.id}
-                        className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border border-neutral-100"
+                        className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-neutral-100 transform translate-y-0 opacity-100 animate-fade-in-up"
+                        style={{
+                          animationDelay: `${index * 0.1}s`,
+                          animationFillMode: 'both'
+                        }}
                       >
                         <div className="flex items-start gap-4">
-                          <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 shadow-md">
+                          <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 shadow-md transition-transform duration-300 hover:scale-105">
                             <img
                               src={item.image}
                               alt={item.name}
