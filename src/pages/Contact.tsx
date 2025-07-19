@@ -13,7 +13,13 @@ const Contact = () => {
       
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-r from-brand-primary to-brand-secondary text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80')`,
+          }}
+        />
+        <div className="absolute inset-0 bg-black/50"></div>
         <div className="relative max-w-6xl mx-auto px-4 text-center">
           <h1 className="font-playfair text-5xl md:text-6xl font-normal mb-6 tracking-wide">
             Contact Us
