@@ -1,4 +1,3 @@
-
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -316,12 +315,12 @@ const Menu = () => {
       <section className="py-12 px-4">
         <div className="max-w-7xl mx-auto">
           <Tabs defaultValue="Big Bites" className="w-full">
-            <TabsList className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-9 w-full mb-12 bg-white border border-neutral-200 p-1 h-auto">
+            <TabsList className="flex justify-center w-full max-w-4xl mx-auto mb-12 bg-transparent border-none p-0 h-auto">
               {categories.map((category) => (
                 <TabsTrigger
                   key={category}
                   value={category}
-                  className="text-xs md:text-sm font-medium py-3 px-2 md:px-4 data-[state=active]:bg-brand-primary data-[state=active]:text-white rounded-md transition-all duration-200"
+                  className="relative bg-transparent text-neutral-600 hover:text-neutral-900 data-[state=active]:text-neutral-900 data-[state=active]:bg-transparent border-none shadow-none px-6 py-3 text-sm font-medium transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-primary after:scale-x-0 after:transition-transform after:duration-200 data-[state=active]:after:scale-x-100"
                 >
                   {category}
                 </TabsTrigger>
