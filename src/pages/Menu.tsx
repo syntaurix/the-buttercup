@@ -1,6 +1,9 @@
+
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import scallopsImage from "@/assets/scallops.jpg";
 import lambImage from "@/assets/lamb.jpg";
 import risottoImage from "@/assets/risotto.jpg";
@@ -294,6 +297,32 @@ const Menu = () => {
   };
 
   const categories = Object.keys(menuData);
+  const [activeTab, setActiveTab] = useState("Big Bites");
+  const [direction, setDirection] = useState(0);
+
+  const handleTabChange = (newTab: string) => {
+    const currentIndex = categories.indexOf(activeTab);
+    const newIndex = categories.indexOf(newTab);
+    setDirection(newIndex > currentIndex ? 1 : -1);
+    setActiveTab(newTab);
+  };
+
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 300 : -300,
+      opacity: 0
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? 300 : -300,
+      opacity: 0
+    })
+  };
 
   return (
     <div className="min-h-screen bg-neutral-50">
@@ -315,37 +344,50 @@ const Menu = () => {
       {/* Menu Content */}
       <section className="py-12 px-4">
         <div className="max-w-7xl mx-auto">
-          <Tabs defaultValue="Big Bites" className="w-full">
-            <TabsList className="flex justify-center w-full max-w-4xl mx-auto mb-12 bg-transparent border-none p-0 h-auto">
-              {categories.map((category) => (
-                <TabsTrigger
-                  key={category}
-                  value={category}
-                  className="relative bg-transparent text-neutral-600 hover:text-neutral-900 data-[state=active]:text-neutral-900 data-[state=active]:bg-transparent border-none shadow-none px-6 py-3 text-sm font-medium transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-primary after:scale-x-0 after:transition-transform after:duration-200 data-[state=active]:after:scale-x-100"
-                >
-                  {category}
-                </TabsTrigger>
-              ))}
+          <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
+            <TabsList className="flex justify-center w-full max-w-full mx-auto mb-12 bg-transparent border-none p-0 h-auto overflow-x-auto scrollbar-hide">
+              <div className="flex space-x-1 min-w-max px-4">
+                {categories.map((category) => (
+                  <TabsTrigger
+                    key={category}
+                    value={category}
+                    className="relative bg-transparent text-neutral-600 hover:text-neutral-900 data-[state=active]:text-neutral-900 data-[state=active]:bg-transparent border-none shadow-none px-4 py-3 text-sm font-medium transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-primary after:scale-x-0 after:transition-transform after:duration-200 data-[state=active]:after:scale-x-100 whitespace-nowrap"
+                  >
+                    {category}
+                  </TabsTrigger>
+                ))}
+              </div>
             </TabsList>
 
-            {categories.map((category) => (
-              <TabsContent key={category} value={category} className="mt-0">
-                <div className="mb-8 animate-fade-in-up">
-                  <div className="bg-neutral-900 py-6 px-8 rounded-lg mb-8 transform transition-all duration-500 ease-out">
+            <div className="relative overflow-hidden">
+              <AnimatePresence initial={false} custom={direction} mode="wait">
+                <motion.div
+                  key={activeTab}
+                  custom={direction}
+                  variants={slideVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{
+                    x: { type: "spring", stiffness: 300, damping: 30 },
+                    opacity: { duration: 0.2 }
+                  }}
+                  className="w-full"
+                >
+                  <div className="bg-neutral-900 py-6 px-8 rounded-lg mb-8">
                     <h2 className="font-playfair text-2xl md:text-3xl text-white text-center font-normal tracking-wide">
-                      {category}
+                      {activeTab}
                     </h2>
                   </div>
                   
-                  <div className="grid md:grid-cols-2 gap-6">
-                    {menuData[category as keyof typeof menuData].map((item, index) => (
-                      <div
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {menuData[activeTab as keyof typeof menuData].map((item, index) => (
+                      <motion.div
                         key={item.id}
-                        className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-neutral-100 transform translate-y-0 opacity-100 animate-fade-in-up"
-                        style={{
-                          animationDelay: `${index * 0.1}s`,
-                          animationFillMode: 'both'
-                        }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.1, duration: 0.3 }}
+                        className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-neutral-100"
                       >
                         <div className="flex items-start gap-4">
                           <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 shadow-md transition-transform duration-300 hover:scale-105">
@@ -371,12 +413,12 @@ const Menu = () => {
                             </p>
                           </div>
                         </div>
-                      </div>
+                      </motion.div>
                     ))}
                   </div>
-                </div>
-              </TabsContent>
-            ))}
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </Tabs>
         </div>
       </section>
