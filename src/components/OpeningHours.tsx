@@ -26,35 +26,63 @@ export const OpeningHours = () => {
           </div>
 
           {/* Right side - Opening Hours */}
-          <div className="bg-black/60 backdrop-blur-sm rounded-xl p-8 text-white">
-            <h3 className="text-2xl font-bold mb-6 text-center">Opening Hours</h3>
+          <div className="bg-white rounded-xl p-12 text-neutral-800 max-w-md mx-auto w-full">
+            {/* Top decorative line */}
+            <div className="text-center mb-8">
+              <p className="text-xs font-medium tracking-widest text-neutral-500 uppercase mb-4">
+                Please Come In
+              </p>
+              <div className="w-16 h-px bg-neutral-300 mx-auto"></div>
+            </div>
+
+            <h3 className="text-3xl font-playfair font-normal mb-12 text-center tracking-wide">
+              OPENING<br />
+              HOURS
+            </h3>
             
-            <div className="space-y-4">
+            <div className="space-y-6 mb-12">
               <div className="flex justify-between items-center">
-                <span className="text-white/80">Monday - Friday</span>
-                <div className="text-right">
-                  <div className="text-lg font-semibold">11:00</div>
-                  <div className="text-lg font-semibold">22:00</div>
-                </div>
+                <span className="text-sm font-medium tracking-wide uppercase">Monday</span>
+                <span className="text-sm font-light">8AM - 8 PM</span>
               </div>
               
               <div className="flex justify-between items-center">
-                <span className="text-white/80">Saturday - Sunday</span>
-                <div className="text-right">
-                  <div className="text-lg font-semibold">11:00</div>
-                  <div className="text-lg font-semibold">22:00</div>
-                </div>
+                <span className="text-sm font-medium tracking-wide uppercase">Tuesday</span>
+                <span className="text-sm font-light">8AM - 8 PM</span>
+              </div>
+              
+              <div className="flex justify-between items-center">
+                <span className="text-sm font-medium tracking-wide uppercase">Wednesday</span>
+                <span className="text-sm font-light">8AM - 8 PM</span>
+              </div>
+              
+              <div className="flex justify-between items-center">
+                <span className="text-sm font-medium tracking-wide uppercase">Thursday</span>
+                <span className="text-sm font-light">8AM - 8 PM</span>
+              </div>
+              
+              <div className="flex justify-between items-center">
+                <span className="text-sm font-medium tracking-wide uppercase">Friday</span>
+                <span className="text-sm font-light">8AM - 8 PM</span>
+              </div>
+              
+              <div className="flex justify-between items-center">
+                <span className="text-sm font-medium tracking-wide uppercase">Saturday</span>
+                <span className="text-sm font-light">8AM - 4 PM</span>
+              </div>
+              
+              <div className="flex justify-between items-center">
+                <span className="text-sm font-medium tracking-wide uppercase">Sunday</span>
+                <span className="text-sm font-light">CLOSED</span>
               </div>
             </div>
 
-            <div className="mt-8 text-center">
-              <div className="bg-brand-accent text-white px-6 py-2 rounded-full inline-block mb-4">
-                Call Now
-              </div>
-              <div className="text-2xl font-bold">0707 000 777</div>
-              <div className="bg-brand-accent text-white px-6 py-2 rounded-full inline-block mt-4">
-                0707777777
-              </div>
+            {/* Bottom decorative section */}
+            <div className="text-center">
+              <div className="w-16 h-px bg-neutral-300 mx-auto mb-4"></div>
+              <p className="text-xs font-medium tracking-widest text-neutral-500 uppercase">
+                Please Come In
+              </p>
             </div>
           </div>
         </div>
