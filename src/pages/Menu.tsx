@@ -1,14 +1,11 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useState } from "react";
 import scallopsImage from "@/assets/scallops.jpg";
 import lambImage from "@/assets/lamb.jpg";
 import risottoImage from "@/assets/risotto.jpg";
 
 const Menu = () => {
-  const [activeCategory, setActiveCategory] = useState("Big Bites");
-
   const menuData = {
     "Big Bites": [
       {
@@ -298,10 +295,6 @@ const Menu = () => {
 
   const categories = Object.keys(menuData);
 
-  const handleCategoryClick = (category: string) => {
-    setActiveCategory(category);
-  };
-
   return (
     <div className="min-h-screen bg-neutral-50">
       <Header />
@@ -322,117 +315,73 @@ const Menu = () => {
       {/* Menu Content */}
       <section className="py-12 px-4">
         <div className="max-w-7xl mx-auto">
-          {/* Menu Navigation */}
-          <div className="flex justify-center w-full max-w-4xl mx-auto mb-12">
-            <div className="flex flex-wrap justify-center gap-4 bg-white rounded-lg p-2 shadow-sm border border-neutral-100">
+          <Tabs defaultValue="Big Bites" className="w-full">
+            <TabsList className="flex justify-center w-full max-w-4xl mx-auto mb-12 bg-transparent border-none p-0 h-auto">
               {categories.map((category) => (
-                <button
+                <TabsTrigger
                   key={category}
-                  onClick={() => handleCategoryClick(category)}
-                  className={`relative px-6 py-3 text-sm font-medium transition-all duration-300 rounded-md ${
-                    activeCategory === category
-                      ? "bg-brand-primary text-white shadow-md transform scale-105"
-                      : "text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50"
-                  }`}
+                  value={category}
+                  className="relative bg-transparent text-neutral-600 hover:text-neutral-900 data-[state=active]:text-neutral-900 data-[state=active]:bg-transparent border-none shadow-none px-6 py-3 text-sm font-medium transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-primary after:scale-x-0 after:transition-transform after:duration-200 data-[state=active]:after:scale-x-100"
                 >
                   {category}
-                </button>
+                </TabsTrigger>
               ))}
-            </div>
-          </div>
+            </TabsList>
 
-          {/* Carousel Container */}
-          <div className="relative overflow-hidden">
-            <div className="w-full">
-              {/* Category Header */}
-              <div 
-                key={activeCategory}
-                className="bg-neutral-900 py-6 px-8 rounded-lg mb-8 transform transition-all duration-700 ease-out animate-fade-in"
-              >
-                <h2 className="font-playfair text-2xl md:text-3xl text-white text-center font-normal tracking-wide">
-                  {activeCategory}
-                </h2>
-              </div>
-              
-              {/* Menu Items Grid */}
-              <div 
-                key={`${activeCategory}-items`}
-                className="grid md:grid-cols-2 gap-6 opacity-0 translate-y-4 animate-fade-in-up"
-                style={{ 
-                  animation: 'fadeInUp 0.6s ease-out 0.2s forwards'
-                }}
-              >
-                {(menuData[activeCategory as keyof typeof menuData] || []).map((item, index) => (
-                  <div
-                    key={item.id}
-                    className="bg-white p-6 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 border border-neutral-100 transform hover:-translate-y-1"
-                    style={{
-                      animation: `fadeInUp 0.6s ease-out ${0.1 * index + 0.3}s forwards`,
-                      opacity: 0,
-                      transform: 'translateY(20px)'
-                    }}
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 shadow-md transition-transform duration-300 hover:scale-110">
-                        <img
-                          src={item.image}
-                          alt={item.name}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      
-                      <div className="flex-1 min-w-0">
-                        <div className="flex justify-between items-start mb-2">
-                          <h3 className="font-playfair text-lg md:text-xl text-brand-dark font-normal leading-tight">
-                            {item.name}
-                          </h3>
-                          <span className="font-inter font-semibold text-brand-primary text-lg ml-4 flex-shrink-0">
-                            ${item.price}
-                          </span>
-                        </div>
-                        
-                        <p className="font-inter text-sm md:text-base text-neutral-600 leading-relaxed">
-                          {item.description}
-                        </p>
-                      </div>
-                    </div>
+            {categories.map((category) => (
+              <TabsContent key={category} value={category} className="mt-0">
+                <div className="mb-8 animate-fade-in-up">
+                  <div className="bg-neutral-900 py-6 px-8 rounded-lg mb-8 transform transition-all duration-500 ease-out">
+                    <h2 className="font-playfair text-2xl md:text-3xl text-white text-center font-normal tracking-wide">
+                      {category}
+                    </h2>
                   </div>
-                ))}
-              </div>
-            </div>
-          </div>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {menuData[category as keyof typeof menuData].map((item, index) => (
+                      <div
+                        key={item.id}
+                        className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-neutral-100 transform translate-y-0 opacity-100 animate-fade-in-up"
+                        style={{
+                          animationDelay: `${index * 0.1}s`,
+                          animationFillMode: 'both'
+                        }}
+                      >
+                        <div className="flex items-start gap-4">
+                          <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 shadow-md transition-transform duration-300 hover:scale-105">
+                            <img
+                              src={item.image}
+                              alt={item.name}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          
+                          <div className="flex-1 min-w-0">
+                            <div className="flex justify-between items-start mb-2">
+                              <h3 className="font-playfair text-lg md:text-xl text-brand-dark font-normal leading-tight">
+                                {item.name}
+                              </h3>
+                              <span className="font-inter font-semibold text-brand-primary text-lg ml-4 flex-shrink-0">
+                                ${item.price}
+                              </span>
+                            </div>
+                            
+                            <p className="font-inter text-sm md:text-base text-neutral-600 leading-relaxed">
+                              {item.description}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </TabsContent>
+            ))}
+          </Tabs>
         </div>
       </section>
 
       <Footer />
-      
-      <style>
-        {`
-          @keyframes fadeInUp {
-            from {
-              opacity: 0;
-              transform: translateY(20px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-          
-          .animate-fade-in {
-            animation: fadeIn 0.5s ease-out forwards;
-          }
-          
-          @keyframes fadeIn {
-            from {
-              opacity: 0;
-            }
-            to {
-              opacity: 1;
-            }
-          }
-        `}
-      </style>
     </div>
   );
 };
