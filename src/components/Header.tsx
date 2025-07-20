@@ -26,7 +26,7 @@ export const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+        isScrolled || location.pathname !== "/"
           ? "bg-white/95 backdrop-blur-md shadow-lg"
           : "bg-transparent"
       }`}
@@ -67,12 +67,7 @@ export const Header = () => {
                 />
               </Link>
             ))}
-            <Link
-              to="/reservations"
-              className="bg-brand-primary hover:bg-brand-secondary text-white px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105"
-            >
-              RESERVATIONS
-            </Link>
+            
           </div>
 
           {/* Mobile menu button */}

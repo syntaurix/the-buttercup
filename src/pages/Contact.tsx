@@ -32,12 +32,12 @@ const Contact = () => {
 
       {/* Contact Information Cards */}
       <section className="py-16 px-4 -mt-8 relative z-10">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto flex flex-col justify-center  items-center">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             <Card className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 border-0">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-brand-light rounded-full flex items-center justify-center mx-auto mb-4">
-                  <MapPin className="w-8 h-8 text-brand-primary" />
+                  <MapPin className="w-8 h-8" />
                 </div>
                 <h3 className="font-playfair text-xl text-brand-dark mb-3 font-normal">Location</h3>
                 <p className="font-inter text-neutral-600 leading-relaxed">
@@ -51,7 +51,7 @@ const Contact = () => {
             <Card className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 border-0">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-brand-light rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Phone className="w-8 h-8 text-brand-primary" />
+                  <Phone className="w-8 h-8" />
                 </div>
                 <h3 className="font-playfair text-xl text-brand-dark mb-3 font-normal">Phone</h3>
                 <p className="font-inter text-neutral-600 leading-relaxed">
@@ -65,7 +65,7 @@ const Contact = () => {
             <Card className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 border-0">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-brand-light rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Mail className="w-8 h-8 text-brand-primary" />
+                  <Mail className="w-8 h-8" />
                 </div>
                 <h3 className="font-playfair text-xl text-brand-dark mb-3 font-normal">Email</h3>
                 <p className="font-inter text-neutral-600 leading-relaxed">
@@ -79,7 +79,7 @@ const Contact = () => {
             <Card className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 border-0">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-brand-light rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Clock className="w-8 h-8 text-brand-primary" />
+                  <Clock className="w-8 h-8" />
                 </div>
                 <h3 className="font-playfair text-xl text-brand-dark mb-3 font-normal">Hours</h3>
                 <div className="font-inter text-neutral-600 text-sm space-y-1">
@@ -92,12 +92,9 @@ const Contact = () => {
             </Card>
           </div>
 
-          {/* Contact Form and Info */}
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
             <Card className="bg-white shadow-lg border-0">
               <CardContent className="p-8">
-                <h2 className="font-playfair text-3xl text-brand-primary mb-8 font-normal">
+                <h2 className="font-playfair text-3xl mb-8 font-normal">
                   Send us a Message
                 </h2>
                 
@@ -169,54 +166,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            {/* Additional Information */}
-            <div className="space-y-8">
-              <Card className="bg-white shadow-lg border-0">
-                <CardContent className="p-8">
-                  <h3 className="font-playfair text-2xl text-brand-primary mb-6 font-normal">
-                    Visit Our Restaurant
-                  </h3>
-                  <p className="font-inter text-lg text-neutral-600 leading-relaxed mb-6">
-                    Located in the heart of Willowbrook Valley, The Buttercup is housed in a beautifully 
-                    restored 19th-century farmhouse. We're easily accessible by car with complimentary 
-                    valet parking, and just a short walk from the downtown historic district.
-                  </p>
-                  <div className="space-y-4">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-brand-primary rounded-full"></div>
-                      <span className="font-inter text-neutral-700">Complimentary valet parking</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-brand-primary rounded-full"></div>
-                      <span className="font-inter text-neutral-700">Wheelchair accessible</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-brand-primary rounded-full"></div>
-                      <span className="font-inter text-neutral-700">Historic downtown location</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
 
-              <Card className="bg-brand-light shadow-lg border-0">
-                <CardContent className="p-8">
-                  <h3 className="font-playfair text-2xl text-brand-primary mb-6 font-normal">
-                    Private Events & Catering
-                  </h3>
-                  <p className="font-inter text-lg text-neutral-700 leading-relaxed mb-6">
-                    The Buttercup offers private dining rooms for special occasions, corporate events, 
-                    and intimate celebrations. Our catering services bring our culinary excellence to your venue.
-                  </p>
-                  <Button
-                    variant="outline"
-                    className="border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white transition-all duration-300"
-                  >
-                    Learn More About Private Events
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
         </div>
       </section>
 
