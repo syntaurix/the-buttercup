@@ -6,7 +6,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-neutral-50">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="relative pt-20 pb-16 bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 text-white overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center opacity-30"></div>
@@ -33,24 +33,34 @@ const About = () => {
             </h2>
             <div className="space-y-4 text-neutral-600 text-lg leading-relaxed">
               <p>
-                Cuisine Colombo Pvt Ltd is a limited liability company having registered its business at 
-                Sri Lanka in January 2016 and has gradually evolved as a popular Restaurant chain in 
-                Colombo serving a multi-cuisine feast in a wide range of categories.
+                Welcome to The Buttercup Restaurant, a warm and elegant dining destination located in the heart of Maharagama, Sri Lanka. Set along High Level Road, our restaurant has become a favorite spot for families, couples, and friends seeking a memorable dining experience in a relaxed yet refined atmosphere.
+
               </p>
               <p>
-                The Management of Cuisine Colombo to become a renowned chain of Restaurants with 
-                branches in different parts of the World serving top quality food with an array of 
-                dishes to cater to a majority.
+                At The Buttercup, we focus on delivering high-quality dishes inspired by both international and Sri Lankan culinary traditions. Every plate is thoughtfully prepared to highlight freshness, flavor, and creativity — perfect for guests who appreciate great food and great company.
+              </p>
+              <br />
+              <b>A Fine Dining Experience</b>
+
+              <p>
+                We offer a fine dine-in area designed for comfort and sophistication. Whether you're celebrating a special moment, hosting a business meeting, or enjoying an intimate evening, our cozy and stylish interior provides the ideal setting.
+              </p>
+              <br />
+              <b>Relaxed BYOB Lounge</b>
+
+              <p>
+                For guests who enjoy pairing their meals with their personal choice of beverages, we also feature a dedicated BYOB area. Bring your own bottle and unwind while our team ensures you have everything you need for a comfortable and enjoyable evening.
+
+              </p>
+              <br />
+              <b>
+                A Place for Everyone
+                </b>
+              <p>
+                Our friendly staff, warm ambiance, and diverse menu make The Buttercup a welcoming space for all kinds of occasions — from casual meals to celebrations. We are also available on delivery platforms, allowing you to enjoy our dishes from the comfort of your home.
               </p>
               <p>
-                Since that Cuisine Colombo is a multi-cuisine restaurant it caters to different tastes. Visit 
-                our facility: Mezzanine, Sri Thai Vegetarian performance, Fusion dishes, Fresh oven grills 
-                from our kitchen, Premium bar facilities at Sky bar, Poolside Grills, Italian, Mexican, 
-                Indonesian and Indian Thai Cuisine as well.
-              </p>
-              <p>
-                The branch of Cuisine Colombo consists of well experienced, fresh talented chefs from the Hotel with plenty of experience having worked in renowned 5 star Hotels. Cuisine Bars, we which enables Cuisine 
-                Colombo to stand out with fine delicacies appreciated by all. Our Waitron is to be recognized as a distinctive service.
+                At The Buttercup, we believe that hospitality is an experience. Thank you for choosing us, and we look forward to welcoming you into the Buttercup family.
               </p>
             </div>
           </div>
@@ -58,9 +68,9 @@ const About = () => {
           {/* Right Column - Logo */}
           <div className="flex items-center justify-center">
             <div className="text-center">
-              <img 
-                src="/lovable-uploads/cc13e061-2c4e-4971-af5d-28335275563a.png" 
-                alt="The Buttercup Logo" 
+              <img
+                src="/lovable-uploads/cc13e061-2c4e-4971-af5d-28335275563a.png"
+                alt="The Buttercup Logo"
                 className="h-48 w-auto mx-auto mb-6"
               />
             </div>

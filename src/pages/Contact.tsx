@@ -10,7 +10,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-neutral-50">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-r from-brand-primary to-brand-secondary text-white relative overflow-hidden">
         <div
@@ -41,9 +41,7 @@ const Contact = () => {
                 </div>
                 <h3 className="font-playfair text-xl text-brand-dark mb-3 font-normal">Location</h3>
                 <p className="font-inter text-neutral-600 leading-relaxed">
-                  1847 Heritage Lane<br />
-                  Willowbrook Valley<br />
-                  WV 12345
+                  No 221,<br /> High Level Road,<br />  Maharagama,<br /> Sri Lanka
                 </p>
               </CardContent>
             </Card>
@@ -55,9 +53,9 @@ const Contact = () => {
                 </div>
                 <h3 className="font-playfair text-xl text-brand-dark mb-3 font-normal">Phone</h3>
                 <p className="font-inter text-neutral-600 leading-relaxed">
-                  (555) 123-BUTTERCUP<br />
-                  (555) 123-2883<br />
-                  <span className="text-sm text-neutral-500">Call daily 10am-10pm</span>
+                  0112 845 813<br />
+                  <span className="text-sm text-neutral-500">Call us daily from 11.00 AM to 11.00 PM for reservations, inquiries, or order support.
+                  </span>
                 </p>
               </CardContent>
             </Card>
@@ -69,9 +67,9 @@ const Contact = () => {
                 </div>
                 <h3 className="font-playfair text-xl text-brand-dark mb-3 font-normal">Email</h3>
                 <p className="font-inter text-neutral-600 leading-relaxed">
-                  hello@thebuttercup.com<br />
-                  reservations@thebuttercup.com<br />
-                  <span className="text-sm text-neutral-500">Response within 24hrs</span>
+                  buttercupmhg@gmail.com<br />
+                  <span className="text-sm text-neutral-500">Feel free to write to us anytime. We respond promptly during business hours.
+                  </span>
                 </p>
               </CardContent>
             </Card>
@@ -82,89 +80,87 @@ const Contact = () => {
                   <Clock className="w-8 h-8" />
                 </div>
                 <h3 className="font-playfair text-xl text-brand-dark mb-3 font-normal">Hours</h3>
-                <div className="font-inter text-neutral-600 text-sm space-y-1">
-                  <p><span className="font-medium">Tue-Thu:</span> 5:00-10:00pm</p>
-                  <p><span className="font-medium">Fri-Sat:</span> 5:00-11:00pm</p>
-                  <p><span className="font-medium">Sunday:</span> 4:00-9:00pm</p>
-                  <p className="text-neutral-500">Closed Mondays</p>
-                </div>
+                <p className="font-inter text-neutral-600 leading-relaxed">
+                  Daily 11 am - 11pm <br />
+                  <span className="text-sm text-neutral-500">We are closed on Poya Days in respect of local religious traditions.</span>
+                </p>
               </CardContent>
             </Card>
           </div>
 
-            <Card className="bg-white shadow-lg border-0">
-              <CardContent className="p-8">
-                <h2 className="font-playfair text-3xl mb-8 font-normal">
-                  Send us a Message
-                </h2>
-                
-                <form className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block font-inter text-sm font-medium text-brand-dark mb-2 tracking-wide uppercase">
-                        First Name
-                      </label>
-                      <Input
-                        type="text"
-                        placeholder="John"
-                        className="border-neutral-300 focus:border-brand-primary focus:ring-brand-primary"
-                      />
-                    </div>
-                    <div>
-                      <label className="block font-inter text-sm font-medium text-brand-dark mb-2 tracking-wide uppercase">
-                        Last Name
-                      </label>
-                      <Input
-                        type="text"
-                        placeholder="Doe"
-                        className="border-neutral-300 focus:border-brand-primary focus:ring-brand-primary"
-                      />
-                    </div>
-                  </div>
+          <Card className="bg-white shadow-lg border-0">
+            <CardContent className="p-8">
+              <h2 className="font-playfair text-3xl mb-8 font-normal">
+                Send us a Message
+              </h2>
 
+              <form className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <label className="block font-inter text-sm font-medium text-brand-dark mb-2 tracking-wide uppercase">
-                      Email
-                    </label>
-                    <Input
-                      type="email"
-                      placeholder="john@example.com"
-                      className="border-neutral-300 focus:border-brand-primary focus:ring-brand-primary"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block font-inter text-sm font-medium text-brand-dark mb-2 tracking-wide uppercase">
-                      Subject
+                      First Name
                     </label>
                     <Input
                       type="text"
-                      placeholder="General Inquiry"
+                      placeholder="John"
                       className="border-neutral-300 focus:border-brand-primary focus:ring-brand-primary"
                     />
                   </div>
-
                   <div>
                     <label className="block font-inter text-sm font-medium text-brand-dark mb-2 tracking-wide uppercase">
-                      Message
+                      Last Name
                     </label>
-                    <textarea
-                      rows={6}
-                      className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all duration-300 resize-vertical"
-                      placeholder="Tell us how we can help you..."
-                    ></textarea>
+                    <Input
+                      type="text"
+                      placeholder="Doe"
+                      className="border-neutral-300 focus:border-brand-primary focus:ring-brand-primary"
+                    />
                   </div>
+                </div>
 
-                  <Button
-                    type="submit"
-                    className="w-full bg-brand-primary hover:bg-brand-secondary text-white py-4 px-8 rounded-lg font-inter text-sm tracking-wider uppercase transition-all duration-300 hover:shadow-lg hover:shadow-brand-primary/30"
-                  >
-                    <Send className="w-4 h-4 mr-2" />
-                    Send Message
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+                <div>
+                  <label className="block font-inter text-sm font-medium text-brand-dark mb-2 tracking-wide uppercase">
+                    Email
+                  </label>
+                  <Input
+                    type="email"
+                    placeholder="john@example.com"
+                    className="border-neutral-300 focus:border-brand-primary focus:ring-brand-primary"
+                  />
+                </div>
+
+                <div>
+                  <label className="block font-inter text-sm font-medium text-brand-dark mb-2 tracking-wide uppercase">
+                    Subject
+                  </label>
+                  <Input
+                    type="text"
+                    placeholder="General Inquiry"
+                    className="border-neutral-300 focus:border-brand-primary focus:ring-brand-primary"
+                  />
+                </div>
+
+                <div>
+                  <label className="block font-inter text-sm font-medium text-brand-dark mb-2 tracking-wide uppercase">
+                    Message
+                  </label>
+                  <textarea
+                    rows={6}
+                    className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all duration-300 resize-vertical"
+                    placeholder="Tell us how we can help you..."
+                  ></textarea>
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full bg-brand-primary hover:bg-brand-secondary text-white py-4 px-8 rounded-lg font-inter text-sm tracking-wider uppercase transition-all duration-300 hover:shadow-lg hover:shadow-brand-primary/30"
+                >
+                  <Send className="w-4 h-4 mr-2" />
+                  Send Message
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
 
 
         </div>
