@@ -43,37 +43,37 @@ export const OpeningHours = () => {
             <div className="space-y-6 mb-12">
               <div className="flex justify-between items-center">
                 <span className="text-sm font-medium tracking-wide uppercase">Monday</span>
-                <span className="text-sm font-light">8AM - 8 PM</span>
+                <span className="text-sm font-light">11AM - 11 PM</span>
               </div>
               
               <div className="flex justify-between items-center">
                 <span className="text-sm font-medium tracking-wide uppercase">Tuesday</span>
-                <span className="text-sm font-light">8AM - 8 PM</span>
+                <span className="text-sm font-light">11AM - 11 PM</span>
               </div>
               
               <div className="flex justify-between items-center">
                 <span className="text-sm font-medium tracking-wide uppercase">Wednesday</span>
-                <span className="text-sm font-light">8AM - 8 PM</span>
+                <span className="text-sm font-light">11AM - 11 PM</span>
               </div>
               
               <div className="flex justify-between items-center">
                 <span className="text-sm font-medium tracking-wide uppercase">Thursday</span>
-                <span className="text-sm font-light">8AM - 8 PM</span>
+                <span className="text-sm font-light">11AM - 11 PM</span>
               </div>
               
               <div className="flex justify-between items-center">
                 <span className="text-sm font-medium tracking-wide uppercase">Friday</span>
-                <span className="text-sm font-light">8AM - 8 PM</span>
+                <span className="text-sm font-light">11AM - 11 PM</span>
               </div>
               
               <div className="flex justify-between items-center">
                 <span className="text-sm font-medium tracking-wide uppercase">Saturday</span>
-                <span className="text-sm font-light">8AM - 4 PM</span>
+                <span className="text-sm font-light">11AM - 11PM</span>
               </div>
               
               <div className="flex justify-between items-center">
                 <span className="text-sm font-medium tracking-wide uppercase">Sunday</span>
-                <span className="text-sm font-light">CLOSED</span>
+                <span className="text-sm font-light">11AM - 11PM</span>
               </div>
             </div>
 
