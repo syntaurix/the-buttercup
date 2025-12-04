@@ -8,15 +8,21 @@ const About = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center opacity-30"></div>
+      <section className="pt-24 pb-16 bg-gradient-to-r from-brand-primary to-brand-secondary text-white relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`,
+          }}
+        />
+        <div className="absolute inset-0 bg-black/50"></div>
         <div className="relative max-w-6xl mx-auto px-4 text-center">
-          <p className="text-brand-accent font-medium text-lg tracking-wider mb-2">
-            Relax, Unwind and Savor the Best Cuisine in Colombo
-          </p>
           <h1 className="font-playfair text-5xl md:text-6xl font-normal mb-4 tracking-wide">
             About our Restaurant
           </h1>
+          <p className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            Relax, Unwind and Savor the Best Cuisine in Colombo
+          </p>
         </div>
       </section>
 
@@ -69,7 +75,7 @@ const About = () => {
           <div className="flex items-center justify-center">
             <div className="text-center">
               <img
-                src="/lovable-uploads/cc13e061-2c4e-4971-af5d-28335275563a.png"
+                src="/logo.png"
                 alt="The Buttercup Logo"
                 className="h-48 w-auto mx-auto mb-6"
               />

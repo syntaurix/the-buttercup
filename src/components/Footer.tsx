@@ -7,7 +7,7 @@ export const Footer = () => {
           <div className="md:col-span-2">
             <div className="flex items-center mb-4">
               <img 
-                src="/lovable-uploads/cc13e061-2c4e-4971-af5d-28335275563a.png" 
+                src="/logo.png" 
                 alt="The Buttercup Logo" 
                 className="h-10 w-auto mr-3"
               />
@@ -20,9 +20,9 @@ export const Footer = () => {
               We pride ourselves on using the freshest ingredients and innovative techniques.
             </p>
             <div className="text-neutral-300">
-              <p>123 Fine Dining Street</p>
-              <p>Culinary District, CD 12345</p>
-              <p>Phone: (555) 123-4567</p>
+              <p>No 221, High Level Road</p>
+              <p>Maharagama, Sri Lanka</p>
+              <p>Phone: 0112 845 813</p>
             </div>
           </div>
           
@@ -39,8 +39,7 @@ export const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Opening Hours</h4>
             <div className="text-neutral-300 space-y-1">
-              <p>Monday - Friday: 11:00 - 22:00</p>
-              <p>Saturday - Sunday: 11:00 - 22:00</p>
+              <p>Daily from 11.00 AM to 11.00 PM</p>
             </div>
           </div>
         </div>
