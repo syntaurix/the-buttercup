@@ -9,17 +9,24 @@ const Reservations = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-brand-primary text-white">
-        <div className="max-w-6xl mx-auto px-4 text-center">
+      <section className="pt-24 pb-16 bg-gradient-to-r from-brand-primary to-brand-secondary text-white relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80')`,
+          }}
+        />
+        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="relative max-w-6xl mx-auto px-4 text-center">
           <h1 className="font-playfair text-5xl md:text-6xl font-normal mb-4 tracking-wide">
             Reservations
           </h1>
-          <p className="font-inter text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
             Reserve your table for an unforgettable culinary experience at The Buttercup
           </p>
         </div>
       </section>
-
+      
       {/* Reservation Content */}
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto">

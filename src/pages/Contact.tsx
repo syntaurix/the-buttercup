@@ -24,7 +24,7 @@ const Contact = () => {
           <h1 className="font-playfair text-5xl md:text-6xl font-normal mb-6 tracking-wide">
             Contact Us
           </h1>
-          <p className="font-inter text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
             We'd love to hear from you. Get in touch for reservations, inquiries, or just to say hello.
           </p>
         </div>

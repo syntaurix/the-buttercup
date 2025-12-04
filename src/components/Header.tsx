@@ -32,7 +32,7 @@ export const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img 
-              src="/lovable-uploads/cc13e061-2c4e-4971-af5d-28335275563a.png" 
+              src="/logo.png" 
               alt="The Buttercup Logo" 
               className="h-12 w-auto mr-3"
             />

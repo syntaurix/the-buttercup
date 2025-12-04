@@ -7,7 +7,7 @@ export const Footer = () => {
           <div className="md:col-span-2">
             <div className="flex items-center mb-4">
               <img 
-                src="/lovable-uploads/cc13e061-2c4e-4971-af5d-28335275563a.png" 
+                src="/logo.png" 
                 alt="The Buttercup Logo" 
                 className="h-10 w-auto mr-3"
               />
